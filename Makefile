@@ -21,7 +21,7 @@ queue.o: Queue/Queue.c Queue/Queue.h Stack/stack.h
 dynamic_array.o: Array/dynamic_array.c Array/dynamic_array.h
 	$(CC) $(CFLAGS) Array/dynamic_array.c -o dynamic_array.o
 
-hash_table.o: Hash_Table/hash_table.c hash_table/hash_table.h
+hash_table.o: Hash_Table/hash_table.c Hash_Table/hash_table.h
 	$(CC) $(CFLAGS) Hash_Table/hash_table.c -o hash_table.o
 
 clean:
