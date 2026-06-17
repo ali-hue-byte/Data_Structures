@@ -1,7 +1,8 @@
-// This file provides necessary functions to implement a Stack using a linked list
-// Possible operations for stack :
-// - Add an element to its top
-// - Remove the last added element
+/* This file provides necessary functions to implement a Stack using a linked list
+   Possible operations for stack :
+   - Add an element to its top
+   - Remove the last added element
+*/
 
 # include <stdio.h>
 # include <stdlib.h>
