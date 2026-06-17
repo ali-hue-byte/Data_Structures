@@ -1,7 +1,7 @@
 /* This file provides necessary functions to implement a Queue using two stacks
    Possible operations for Queue :
-   Add an element to its rear
-   Remove an element from the front 
+   - enqueue: Add an element to its rear
+   - dequeue: Remove an element from the front 
 
    With two stacks it is possible to make a Queue, using one stack
    to add elements, and the second one to remove the first added element.
