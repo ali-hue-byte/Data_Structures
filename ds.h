@@ -1,8 +1,9 @@
 #ifndef DS_H
 #define DS_H
 
-#include "stack/stack.h"
-#include "queue/Queue.h"
+#include "Stack/stack.h"
+#include "Queue/Queue.h"
 #include "Array/dynamic_array.h"
+#include "Hash_Table/hash_table.h"
 
 #endif
