@@ -45,19 +45,19 @@ just run `make` (or `mingw32-make` on Windows) once, and link against
 Data_Structures/
 ├── Makefile        
 ├── ds.h            
-├── stack/
+├── Stack/
 │   ├── stack.c
 │   ├── stack.h
 │   └── README.md
-├── queue/
-│   ├── queue.c
-│   ├── queue.h
+├── Queue/
+│   ├── Queue.c
+│   ├── Queue.h
 │   └── README.md
 ├── Array/
 │   ├── dynamic_array.c
 │   ├── dynamic_array.h
 │   └── README.md
-└── hash_table/
+└── Hash_Table/
     ├── hash_table.c
     ├── hash_table.h
     └── README.md
