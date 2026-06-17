@@ -1,10 +1,10 @@
-// This file provides necessary functions to implement a dynamic array
-// Possible operations :
-// - append: Add an item at the end 
-// - insert: Add an item at a given index
-// - update: Change an element at a given index
-// - delete: Removes an element at a given index
-
+/* This file provides necessary functions to implement a dynamic array
+   Possible operations :
+   - append: Add an item at the end 
+   - insert: Add an item at a given index
+   - update: Change an element at a given index
+   - delete: Removes an element at a given index
+*/
 
 
 #include <stdio.h>
