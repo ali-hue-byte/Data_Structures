@@ -1,7 +1,7 @@
 /* This file provides necessary functions to implement a Stack using a linked list
    Possible operations for stack :
-   - Add an element to its top
-   - Remove the last added element
+   - push: Add an element to its top
+   - pop: Remove the last added element
 */
 
 # include <stdio.h>
