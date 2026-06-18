@@ -123,6 +123,14 @@ void empty_queue(Queue *queue){
         empty_stack(queue->Stack2);
 }
 
+// Frees all elements and the stacks themselves 
+void destroy_queue(Queue *queue) {
+    empty_stack(queue->Stack1);
+    empty_stack(queue->Stack2);
+    free(queue->Stack1);
+    free(queue->Stack2);
+}
+
 // Returns the number of elements in the queue
 int queue_size(Queue *queue){
     return (stack_size(queue->Stack1) + stack_size(queue->Stack2));
