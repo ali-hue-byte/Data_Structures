@@ -18,5 +18,6 @@ void empty_queue(Queue *queue);
 int queue_size(Queue *queue);
 int queue_peek(Queue *queue);
 Queue create_queue();
+void destroy_queue(Queue *queue);
 
 #endif
