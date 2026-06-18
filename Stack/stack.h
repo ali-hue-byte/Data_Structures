@@ -22,5 +22,6 @@ int stack_size(Stack *stack);
 int stack_peek(Stack *stack);
 void print_stack(Stack *stack);
 void empty_stack(Stack *stack);
+Stack create_stack();
 
 #endif
