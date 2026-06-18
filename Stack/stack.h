@@ -13,6 +13,7 @@ typedef struct  Node  Node;
 
 typedef struct {
     Node *top;
+    int size;
 } Stack;
 
 bool stack_is_empty(Stack *stack);
