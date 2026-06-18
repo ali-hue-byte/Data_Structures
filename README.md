@@ -15,9 +15,9 @@ libraries.
 - **Queue**
 - **Stack**
 - **Hash Table (with separate chaining)**
+- **Linked List**
 
 ### Planned implementations
-- **Linked List**
 - **Graph**
 - **Heap**
 
