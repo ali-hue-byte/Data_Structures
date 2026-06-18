@@ -86,7 +86,22 @@ This compiles every structure into object files and bundles them into
 gcc your_program.c -I/path/to/Data_Structures -L/path/to/Data_Structures -lds -o your_program
 ```
 
-Then in your code:
+For example, if both folder (Data_structures) and your program (test.c) are in Desktop :
+
+```bash
+cd Desktop
+gcc test.c -I./Data_Structures -L./Data_Structures -lds -o test
+```
+
+Then run it :
+
+```bash
+test        # Windows
+./test      # Linux / macOS
+```
+
+
+In your code:
 
 ```c
 #include "path/to/ds.h"
