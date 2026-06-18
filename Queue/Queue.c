@@ -41,7 +41,7 @@ void enqueue(Queue *queue, int i){
     stack_push(queue->Stack1, i); // Stores elements in first stack
 }
 
-// Removes and returns oldest element of the Queue, using stack 2
+// Removes and returns oldest element of the Queue
 int dequeue(Queue *queue) { 
     
     if (queue_is_empty(queue)){
@@ -113,7 +113,7 @@ void print_queue(Queue *queue){
         print_stack_bottom_to_top(queue->Stack1->top);
     }
 }
-// Cheks if the Queue is empty
+// Checks if the Queue is empty
 bool queue_is_empty(Queue *queue){
     return (queue->Stack1->top == NULL && queue->Stack2->top == NULL);
 }
