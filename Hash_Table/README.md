@@ -33,6 +33,7 @@ If the number of stored elements becomes equal to the capacity of the table, the
 | print_Hash_Table | Prints the hash table. | O(n) |
 | Hash_Table_size | Returns the number of elements in the Hash Table. | O(1) |
 | Hash_Table_update | Updates the value associated with a given key. |  - O(1): best case, if the bucket is empty, or the key is the first element in the linked list. <br> - O(n): in worst case, all n elements hash to the same index, so you traverse the entire linked list <br> - Average case: O(1). |
+| destroy_hash_table | Frees all elements and the internal array. Used when the hash table is no longer needed. | O(n) |
 
 ## Example
 
@@ -109,6 +110,8 @@ int main(){
     Expected output:
     Hash is empty
     */
+
+    destroy_hash_table(&ht);
 
     return 0;
 }
