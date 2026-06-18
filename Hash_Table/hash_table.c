@@ -21,7 +21,8 @@
 // Computes the index in the hash table for a given key
 int Hash_function(const char *c, int capacity){
     unsigned int nb = 0;
-    for(int i = 0; i < strlen(c); i++){
+    int len = strlen(c);
+    for(int i = 0; i < len; i++){
         nb = nb * 11 + c[i];
     }
     return nb % capacity;
@@ -43,12 +44,7 @@ Hash_Table create_hash_table(){
 
 // Checks if the Hash Table is empty
 bool is_empty_hash_table(Hash_Table *h_t){
-    for(int i = 0; i < h_t->capacity ; i++){
-        if(*(h_t->pair + i) != NULL){
-            return false;
-        }
-    }
-    return true;
+    return h_t->size == 0;
 }
 
 // Checks if a key is in the Hash Table
@@ -210,11 +206,6 @@ void Hash_Table_update(Hash_Table *h_t, const char *key, int value){
         printf("Hash is empty\n");
         return;
     }
-
-    if(!Key_in_Hash_Table(h_t, key)){
-        printf("Key not found: %s\n", key);
-        return;
-    }
     
     int index = Hash_function(key, h_t->capacity);
 
@@ -230,3 +221,4 @@ void Hash_Table_update(Hash_Table *h_t, const char *key, int value){
     printf("Key not found: %s\n", key);
 
 }
+
