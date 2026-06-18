@@ -8,14 +8,18 @@ lists to handle collisions (a technique called separate chaining).
 
 ## How it works
 
+### Structure
 The hask table is implemented using an array where each position points to a linked list of key-value pairs. when a key is inserted, 
 a hash function transforms it to a valid index that determines where the pair will be stored in the array.
 
+### Collisions
 It is possible to get the same index for different keys, so we use a linked list to store them where each pair points to the next one. 
 Each new element is added to the front of the list.
 
+### Searching
 When searching for a key, the hash function is first used to find the correct index. Then the linked list at that position is traversed one element at a time until the key is found or the end of the list is reached. The same process is used for updating and deleting elements.
 
+### Resizing
 If the number of stored elements becomes equal to the capacity of the table, the table is resized. A new larger array is created, and all existing elements are reinserted using the hash function so they are placed in their new correct positions.
 
 ## Operations
