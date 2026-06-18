@@ -4,6 +4,7 @@
 
 A queue is a data structure that follows the First In, First Out (FIFO) principle, meaning that the first element added is the first one removed. In this implementation, it is built using two stacks.
 
+---
 ## How it works
 
 ### Structure
@@ -17,6 +18,7 @@ When a value is dequeued or peeked, the algorithm first checks whether Stack2 is
 
 Once the transfer is complete (or if Stack2 was already not empty), the top element of Stack2 is either popped (for dequeue) or read (for peek). If both stacks are empty, the queue is considered empty and there are no elements to return.
 
+---
 ## Operations
 
 | Function | Description | Time complexity |
@@ -32,6 +34,7 @@ Once the transfer is complete (or if Stack2 was already not empty), the top elem
 | destroy_queue | Frees all elements and the stacks themselves. Used when the queue is no longer needed | O(n) |
 | queue_size | Returns the number of elements in the queue (number of elements in both Stack1 and Stack2). | O(1) |
 
+---
 ## Example
 
 ```c
