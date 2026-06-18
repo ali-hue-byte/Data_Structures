@@ -43,22 +43,22 @@ int main(void) {
     enqueue(&q, 30);
 
     printf("Queue: ");
-    print_queue(&q);
+    print_queue(&q); // 10 20 30 
     printf("\n");
 
-    printf("Front (peek): %d\n", queue_peek(&q));
+    printf("Front (peek): %d\n", queue_peek(&q)); // 10
 
     int removed = dequeue(&q);
-    printf("Dequeued: %d\n", removed);
+    printf("Dequeued: %d\n", removed); // 10
 
     printf("Queue after dequeue: ");
-    print_queue(&q);
+    print_queue(&q); // 20 30 
     printf("\n");
 
-    printf("Size: %d\n", queue_size(&q));
+    printf("Size: %d\n", queue_size(&q)); // 2
 
     empty_queue(&q);
-    printf("Empty after empty_queue()? %s\n", queue_is_empty(&q) ? "yes" : "no");
+    printf("Empty after empty_queue()? %s\n", queue_is_empty(&q) ? "yes" : "no"); // yes
 
     return 0;
 }
