@@ -89,7 +89,7 @@ gcc your_program.c -I/path/to/Data_Structures -L/path/to/Data_Structures -lds -o
 Then in your code:
 
 ```c
-#include "ds.h"
+#include "path/to/ds.h"
 ```
 
 To remove the compiled object files and the library:
