@@ -6,12 +6,14 @@ A queue is a data structure that follows the First In, First Out (FIFO) principl
 
 ## How it works
 
+### Structure
 Internally, the queue is implemented using two stacks. The first stack (Stack1) is used to store elements when they are enqueued, while the second stack is used to retrieve elements in the correct order for dequeue operations. This structure allows the queue to simulate a FIFO (First-In First-Out) behavior using two LIFO (Last-In First-Out) stacks.
 
+### Enqueue
 When a new value is enqueued, it is directly pushed to Stack1. This operation is fast because it doesn't require accessing or rearranging of existing elements. 
 
+### Dequeue & Peek
 When a value is dequeued or peeked, the algorithm first checks whether Stack2 is empty. If it is empty, all elements from Stack1 are popped one by one and pushed into Stack2. This process reverses the order of the elements, so the oldest inserted value ends up on top of Stack2.
-
 Once the transfer is complete (or if Stack2 was already not empty), the top element of Stack2 is either popped (for dequeue) or read (for peek). If both stacks are empty, the queue is considered empty and there are no elements to return.
 
 ## Operations
