@@ -10,10 +10,10 @@ Unlike a regular linked list, the (CDLL) gives an easier and faster access to th
 ## How it works
 
 ### Structure
-Internally, each node stores its value, a pointer to the next node, a pointer to the previous node, and a pointer to the list it belongs to. This last pointer is used as an ownership check — before any operation on a node, the function verifies that the node actually belongs to the list it's being used with, preventing accidental misuse across different lists.
+Internally, each node stores its value, a pointer to the next node, a pointer to the previous node, and a pointer to the list it belongs to. This last pointer is used as an ownership check, before any operation on a node, the function verifies that the node actually belongs to the list it's being used with, preventing accidental misuse across different lists.
 
 ### Circularity
-Since the list is circular, the last node always points to the head, and the head always points back to the last node. This means that head->previous gives instant access to the tail at any time, without needing a separate tail pointer. This is what makes CDLL_back, CDLL_push_back, and CDLL_pop_back all O(1).
+Since the list is circular, the last node always points to the head, and the head always points back to the last node. This means that `head->previous` gives instant access to the tail at any time, without needing a separate tail pointer. This is what makes `CDLL_back`, `CDLL_push_back`, and `CDLL_pop_back` all O(1).
 
 ### Insertion/Deletion
 When inserting or deleting a node, only the pointers of the neighboring nodes need to be updated, no elements are shifted like in an array. This is why every insertion and deletion in the CDLL is O(1), regardless of the size of the list.
