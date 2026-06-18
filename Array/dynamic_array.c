@@ -7,10 +7,20 @@
 */
 
 
+
 #include <stdio.h>
 #include "dynamic_array.h"
 #include <stdlib.h>
 #include <stdbool.h>
+
+// Creates a new dynamic array
+Dynamic_Array create_dynamic_array(){
+    Dynamic_Array arr;
+    arr.size = 0 ;
+    arr.capacity = 4;
+    arr.data = malloc(4 * sizeof(int));
+    return arr;
+}
 
 // Adds a new element to the rear of the dynamic array
 void dynamic_array_append(Dynamic_Array *d_array, int value){
@@ -18,7 +28,7 @@ void dynamic_array_append(Dynamic_Array *d_array, int value){
         int new_capacity = (d_array->capacity == 0) ? 1 : d_array->capacity * 2;
         int *data = malloc(new_capacity*sizeof(int)); // Provides more memory if the array is full
 
-        for (int i = 0; i<d_array->size; i++) {
+        for (int i = 0; i < d_array->size; i++) {
             *(data + i) = *(d_array->data + i); // Moves the data to new allocated memory
         }
 
@@ -133,11 +143,11 @@ void empty_dynamic_array(Dynamic_Array *d_array){
     d_array->size = 0;
 }
 
-// Creates a new dynamic array
-Dynamic_Array create_dynamic_array(){
-    Dynamic_Array arr;
-    arr.size = 0 ;
-    arr.capacity = 4;
-    arr.data = malloc(4 * sizeof(int));
-    return arr;
+// Frees the allocated memory of the dynamic array. Used when the array is no longer needed.
+void destroy_dynamic_array(Dynamic_Array *d_array) {
+    free(d_array->data); // Frees the internal data array
+    d_array->data = NULL;
+    d_array->size = 0;
+    d_array->capacity = 0;
 }
+
