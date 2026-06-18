@@ -9,6 +9,14 @@
 # include <stdbool.h>
 # include "stack.h"
 
+// Creates a new stack
+Stack create_stack(){
+    Stack stack;
+    stack.top = NULL;
+    return stack;
+
+}
+
 // Checks if the stack is empty
 bool stack_is_empty(Stack *stack){
     
