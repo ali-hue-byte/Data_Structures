@@ -26,6 +26,7 @@ Once the transfer is complete (or if Stack2 was already not empty), the top elem
 | print_queue | Prints all the elements of the queue. | O(n) |
 | queue_is_empty | Checks if the queue is empty. | O(1) |
 | empty_queue | Removes all elements from the queue by removing them from Stack1 and Stack2. | O(n) |
+| destroy_queue | Frees all elements and the stacks themselves. Used when the queue is no longer needed | O(n) |
 | queue_size | Returns the number of elements in the queue (number of elements in both Stack1 and Stack2). | O(1) |
 
 ## Example
@@ -59,6 +60,8 @@ int main(void) {
 
     empty_queue(&q);
     printf("Empty after empty_queue()? %s\n", queue_is_empty(&q) ? "yes" : "no"); // yes
+
+    destroy_queue(&q);
 
     return 0;
 }
