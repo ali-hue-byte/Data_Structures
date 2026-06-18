@@ -177,6 +177,23 @@ void Hash_Table_empty(Hash_Table *h_t){
     h_t->size = 0;
 }
 
+
+// Frees all elements and the internal array. Used when the hash table is no longer needed.
+void destroy_hash_table(Hash_Table *h_t) {
+    for(int i = 0; i < h_t->capacity; i++){
+        elem *current = *(h_t->pair + i);
+        while(current != NULL){
+            elem *next = current->next;
+            free(current); // Frees each elem node in the chain
+            current = next;
+        }
+    }
+    free(h_t->pair); // Frees the bucket array itself
+    h_t->pair = NULL;
+    h_t->size = 0;
+    h_t->capacity = 0;
+}
+
 // Prints all the elements of the Hash Table
 void print_Hash_Table(Hash_Table *h_t){
     if(is_empty_hash_table(h_t)){
