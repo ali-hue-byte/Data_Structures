@@ -8,8 +8,11 @@ In reality it is just a sequence of memory locations, where data is stored.
 
 ## How it works
 
+### Structure
 Under the hood, the array itself is just a pointer to its first element. The 'index' isn't magic — it's a shift in memory address: 
-arr[i] is the same as *(arr + i), meaning 'move i positions forward from the start, then read what's there'.
+`arr[i]` is the same as `*(arr + i)`, meaning "move i positions forward from the start, then read what's there".
+
+### Resizing
 When the array is full, a new larger block of memory is allocated (typically double the previous capacity, to keep future resizes
 infrequent), and all elements are copied to it, then the old block is freed.
 
