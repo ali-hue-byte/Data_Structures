@@ -23,9 +23,11 @@ Queue create_queue(){
 
     Stack *stack1 = malloc(sizeof(Stack));
     stack1->top = NULL;
+    stack1->size = 0;
 
     Stack *stack2 = malloc(sizeof(Stack));
     stack2->top = NULL;
+    stack2->size = 0;
 
     new_queue.Stack1 = stack1;
     new_queue.Stack2 = stack2;
@@ -43,67 +45,72 @@ void enqueue(Queue *queue, int i){
 int dequeue(Queue *queue) { 
     
     if (queue_is_empty(queue)){
-        printf("Queue is empty");
+        printf("Queue is empty\n");
         return 0;
     }
     else {
+        if (queue->Stack2->top == NULL){
+            while(!stack_is_empty(queue->Stack1)){
+                stack_push(queue->Stack2, stack_pop(queue->Stack1)); 
+            }
+        }
+
+        if (queue->Stack2->top == NULL){
+            printf("Queue is empty\n");
+            return 0;
+        }
         
-        while(!stack_is_empty(queue->Stack1)){
-            // Moves elements from stack 1 to stack 2, from the 
-            // last added element to the oldest one.
-            stack_push(queue->Stack2, stack_pop(queue->Stack1)); 
-        };
         int nb = stack_pop(queue->Stack2);
-        while(!stack_is_empty(queue->Stack2)){
-            // Removes elements to stack 1
-            stack_push(queue->Stack1, stack_pop(queue->Stack2)); 
-        };
         return nb;
     }
 }
-
 // Returns the oldest element without removing it
 int queue_peek(Queue *queue){
     if (queue_is_empty(queue)){
-        printf("Queue is empty");
+        printf("Queue is empty\n");
         return 0;
     }
     else {
-        while(!stack_is_empty(queue->Stack1)){
-            // Moves elements from stack 1 to stack 2, from the 
-            // last added element to the oldest one.
-            stack_push(queue->Stack2, stack_pop(queue->Stack1)); 
-        };
+        if(queue->Stack2->top == NULL){
+            while(!stack_is_empty(queue->Stack1)){
+                stack_push(queue->Stack2, stack_pop(queue->Stack1)); 
+            }
+        }
+
+        if (queue->Stack2->top == NULL){
+            printf("Queue is empty\n");
+            return 0;
+        }
+        
         int nb = queue->Stack2->top->value;
-        while(!stack_is_empty(queue->Stack2)){
-            // Removes elements to stack 1
-            stack_push(queue->Stack1, stack_pop(queue->Stack2)); 
-        };
         return nb;
     }
 }
 
-// Prints all the elements of the stack
+// Helper function to print a reversed stack (used to print stack 1 after stack 2)
+void print_stack_bottom_to_top(Node *node){
+    if (node == NULL)
+        return;
+
+    print_stack_bottom_to_top(node->next);
+    printf("%d ", node->value);
+}
+
+// Prints all the elements of the queue
 void print_queue(Queue *queue){
     if (queue_is_empty(queue)){
-        printf("Queue is empty");
+        printf("Queue is empty\n");
     }else{
-        while(!stack_is_empty(queue->Stack1)){
-            // Moves elements from stack 1 to stack 2
-            stack_push(queue->Stack2, stack_pop(queue->Stack1));
-        };
-        // stack 2 is the reverse of stack 1, which simulates Queue 
-        // behavior (First In First Out)
+
+        // Print Stack2 (front part of queue)
         Node *top_now = queue->Stack2->top; 
         while(top_now != NULL){
-            // Prints elements from the oldest to latest
             printf("%d ", top_now->value);
-            top_now = top_now->next; // Next element
-        };
-        while(!stack_is_empty(queue->Stack2)){
-            // Moves elements from stack 2 to stack 1
-            stack_push(queue->Stack1, stack_pop(queue->Stack2));
-        };
+            top_now = top_now->next;
+        }
+
+        // Print Stack1 (needs reverse order)
+        print_stack_bottom_to_top(queue->Stack1->top);
     }
 }
 // Cheks if the Queue is empty
