@@ -8,18 +8,26 @@ lists to handle collisions (a technique called separate chaining).
 
 ## How it works
 
+The hask table is implemented using an array where each position points to a linked list of key-value pairs. when a key is inserted, 
+a hash function transforms it to a valid index that determines where the pair will be stored in the array.
 
+It is possible to get the same index for different keys, so we use a linked list to store them where each pair points to the next one. 
+Each new element is added to the front of the list.
+
+When searching for a key, the hash function is first used to find the correct index. Then the linked list at that position is traversed one element at a time until the key is found or the end of the list is reached. The same process is used for updating and deleting elements.
+
+If the number of stored elements becomes equal to the capacity of the table, the table is resized. A new larger array is created, and all existing elements are reinserted using the hash function so they are placed in their new correct positions.
 
 ## Operations
 
 | Function | Description | Time complexity |
 |----------|-------------|-----------------|
-| Hash_function | Transforms a key to a valid index for the hash table. | O(k), where k is the length of the key |
+| Hash_function | Transforms a key to a valid index for the hash table. | O(k), where k is the length of the key. |
 | create_hash_table | Creates a new hash table. | O(1) |
 | is_empty_hash_table | Checks if the Hash Table is empty. | O(1) |
-| Key_in_Hash_Table | Checks if a key is in the Hash Table. | - O(1): best case, if the bucket is empty, or the key is the first element in the linked list. <br> - O(n): in worst case, all n elements hash to the same index, so you traverse the entire linked list <br> - Average case: O(1). |
+| Key_in_Hash_Table | Checks if a key is in the Hash Table. | - O(1): best case, if the bucket is empty, or the key is the first element in the linked list. <br> - O(n): in worst case, all n elements hash to the same index, so you traverse the entire linked list. <br> - Average case: O(1). |
 | Hash_Table_add | If necessary, it allocates a new memory block to the hash table, rehashes all elements, and copies them from old array to new one, with their new indexes. Then inserts the new key-value pair to its appropriate index in the array, by setting it's next to the previous head of the linked list at that index, and changing the head of the chain to the new pair. | - O(1): if the table isn't full. <br> - O(n): when the table must be resized and all elements have to be rehashed and copied.  |
-| Hash_Table_get | Returns the value of a given key. | - O(1): best case, if the bucket is empty, or the key is the first element in the linked list. <br> - O(n): in worst case, all n elements hash to the same index, so you traverse the entire linked list <br> - Average case: O(1). |  
+| Hash_Table_get | Returns the value of a given key. | - O(1): best case, if the bucket is empty, or the key is the first element in the linked list. <br> - O(n): in worst case, all n elements hash to the same index, so you traverse the entire linked list. <br> - Average case: O(1). |  
 | Hash_Table_delete | Deletes a key-value pair from the Hash_Table. | - O(1): best case, if the bucket is empty, or the key is the first element in the linked list. <br> - O(n): in worst case, all n elements hash to the same index, so you traverse the entire linked list <br> - Average case: O(1). |
 | Hash_Table_empty | Frees all nodes in the hash table and resets it to empty. | O(n) |
 | print_Hash_Table | Prints the hash table. | O(n) |
