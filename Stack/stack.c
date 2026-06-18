@@ -30,6 +30,7 @@ void stack_push(Stack *stack, int i){
     newN->value = i;
     newN->next = stack->top;
     stack->top = newN; // New Node becomes top of the stack
+    stack->size++;
 }
 
 // Returns and removes the last added value to the stack 
@@ -42,6 +43,7 @@ int stack_pop(Stack *stack){
         int nb = stack->top->value; // Last pushed value
         Node *old = stack->top;
         stack->top = stack->top->next; // Changes top 
+        stack->size--;
         free(old); // Frees memory allocated for the previous top
         return nb;
     }
@@ -78,19 +80,13 @@ void empty_stack(Stack *stack){
         now = now->next;
         free(stack->top); // Frees memory of the current top
         stack->top = now; // Changes top to the next Node
+        stack->size = 0;
     };
 }
 
 // Returns the number of elements in the stack
 int stack_size(Stack *stack) {
-    int size = 0 ;
-    Node *now = stack->top;
-    while (now != NULL){
-        size += 1;
-        now = now->next;
-    }
-    return size;
-
+    return stack->size;
 }
 
 
