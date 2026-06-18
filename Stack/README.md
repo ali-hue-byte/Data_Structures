@@ -4,17 +4,22 @@
 
 A stack is a data structure that follows Last in First out (LIFO) principle, meaning the last added element is the first one removed. In this implementation it is built as a linked list, where each new value is added at the front.
 
+---
 ## How it works 
 
+### Structure
 Internally, the stack is implemented as a linked list, where each element (Node) holds a value, and a pointer to the next node below it.
 The stack only operates with the top - a pointer to the most recently added node.
 
+### Push
 When a new value is pushed, a new node is created, its next pointer is set to point to the current top, and then it becomes the new top.
 This means the newest element is always added to the front of the linked list, which makes removing it as fast as adding it.
 
+### Pop & Peek
 When a value is popped, the top's value is saved, the top pointer is moved to point to the next node in the chain, and the old top is freed from memory. 
 If the stack is empty (top == NULL), there is nothing to pop or peek at.
 
+---
 ## Operations
 
 | Function | Description | Time complexity |
@@ -28,6 +33,7 @@ If the stack is empty (top == NULL), there is nothing to pop or peek at.
 | empty_stack | Removes all the values from the stack. | O(n) |
 | stack_size | Returns the number of elements in the stack. | O(1) |
 
+---
 ## Example 
 
 ```c
