@@ -6,6 +6,7 @@ A hash table is a data structure that stores key-value pairs and allows fast ins
 instead of relying on position like an array does. In this implementation, it's built using an array combined with linked 
 lists to handle collisions (a technique called separate chaining).
 
+---
 ## How it works
 
 ### Structure
@@ -22,6 +23,7 @@ When searching for a key, the hash function is first used to find the correct in
 ### Resizing
 If the number of stored elements becomes equal to the capacity of the table, the table is resized. A new larger array is created, and all existing elements are reinserted using the hash function so they are placed in their new correct positions.
 
+---
 ## Operations
 
 | Function | Description | Time complexity |
@@ -39,6 +41,7 @@ If the number of stored elements becomes equal to the capacity of the table, the
 | Hash_Table_update | Updates the value associated with a given key. |  - O(1): best case, if the bucket is empty, or the key is the first element in the linked list. <br> - O(n): in worst case, all n elements hash to the same index, so you traverse the entire linked list <br> - Average case: O(1). |
 | destroy_hash_table | Frees all elements and the internal array. Used when the hash table is no longer needed. | O(n) |
 
+---
 ## Example
 
 ```c
