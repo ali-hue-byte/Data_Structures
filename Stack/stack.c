@@ -13,6 +13,7 @@
 Stack create_stack(){
     Stack stack;
     stack.top = NULL;
+    stack.size = 0;
     return stack;
 
 }
