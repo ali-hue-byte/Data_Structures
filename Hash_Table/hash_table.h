@@ -1,3 +1,6 @@
+#ifndef HASHTABLE_H
+#define HASHTABLE_H
+
 typedef struct elem{
    char key[20];
    int value;
@@ -21,3 +24,6 @@ void Hash_Table_empty(Hash_Table *h_t);
 void print_Hash_Table(Hash_Table *h_t);
 int Hash_Table_size(Hash_Table *h_t);
 void Hash_Table_update(Hash_Table *h_t, const char *key, int value);
+void destroy_hash_table(Hash_Table *h_t);
+
+#endif
