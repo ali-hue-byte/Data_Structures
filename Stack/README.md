@@ -54,7 +54,7 @@ int main(){
     printf("Size: %d\n", stack_size(&stack)); // 2
 
     empty_stack(&stack);
-    printf("Empty: %d\n", stack_is_empty(&stack)); // 1
+    printf("Empty: %d\n", stack_is_empty(&stack)) ? "yes" : "no"; // 1
 
     return 0;
 }
