@@ -14,6 +14,7 @@ When a new value is enqueued, it is directly pushed to Stack1. This operation is
 
 ### Dequeue & Peek
 When a value is dequeued or peeked, the algorithm first checks whether Stack2 is empty. If it is empty, all elements from Stack1 are popped one by one and pushed into Stack2. This process reverses the order of the elements, so the oldest inserted value ends up on top of Stack2.
+
 Once the transfer is complete (or if Stack2 was already not empty), the top element of Stack2 is either popped (for dequeue) or read (for peek). If both stacks are empty, the queue is considered empty and there are no elements to return.
 
 ## Operations
