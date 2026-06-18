@@ -1,3 +1,21 @@
+/*
+  This file provides necessary functions to implement a Circular Doubly Linked List (CDLL).
+
+  A Linked List is implemented using nodes, each node has a pointer to the next one.
+  Nodes of a doubly Linked list have also a pointer to the previous node.
+  And a circular Linked List is a Linked List where the last element points to the first.
+
+  Do a Circular Doubly Linked List had all characteristics of those Linked list types.
+
+  Possible operations :
+  - push_back: Add an element to the back of the linked list
+  - push_front: Add an element to the front of the linked list
+  - insert: Add a new element after or before a node
+  - update: Change a value in a specific node
+  - delete: Removes a node
+
+*/
+
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
