@@ -30,7 +30,7 @@ infrequent), and all elements are copied to it, then the old block is freed.
 
 ## Example
 
-\`\`\`c
+```c
 
 #include "dynamic_array.h"
 #include <stdio.h>
@@ -61,4 +61,4 @@ int main(){
     return 0;
 }
 
-\`\`\`
+```
