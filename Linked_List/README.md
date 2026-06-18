@@ -6,7 +6,7 @@ A Circular Doubly Linked List (CDLL) is a node-based data structure, where each 
 
 Unlike a regular linked list, the (CDLL) gives an easier and faster access to the last element, and allows traversal in both directions. 
 
-
+---
 ## How it works
 
 ### Structure
@@ -18,6 +18,7 @@ Since the list is circular, the last node always points to the head, and the hea
 ### Insertion/Deletion
 When inserting or deleting a node, only the pointers of the neighboring nodes need to be updated, no elements are shifted like in an array. This is why every insertion and deletion in the CDLL is O(1), regardless of the size of the list.
 
+---
 ## Operations
 
 | Functions | Description | Time complexity |
@@ -39,7 +40,7 @@ When inserting or deleting a node, only the pointers of the neighboring nodes ne
 | CDLL_is_empty | Checks if the Linked List is empty. | O(1) |
 | empty_CDLL | Frees all the Nodes of the linked list. | O(n) |
 
-
+---
 ## Example
 
 ```c
