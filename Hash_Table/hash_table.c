@@ -1,14 +1,16 @@
 /* This file provides the necessary functions to implement a hash table.
+   
+   A hash table is implemented using an array and linked lists.
+   A key is transformed into an index using a hash function, and the 
+   key-value pair is stored in the array at that index.
+   If two keys produce the same index, a linked list is used to handle the collision.
+
    Possible operations:
    - add: Add a key-value pair
    - delete: Delete a pair
    - get: Get a value using its key
    - update: Change the value associated with a key
-
-   A hash table is implemented using an array and linked lists.
-   A key is transformed into an index using a hash function, and the 
-   key-value pair is stored in the array at that index.
-   If two keys produce the same index, a linked list is used to handle the collision.
+   
 */
 
 
