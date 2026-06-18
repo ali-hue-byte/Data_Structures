@@ -6,6 +6,7 @@ Dynamic array is an index based data structure, where elements are stored in ord
 it can automatically resize itself when its capacity is reached.
 In reality it is just a sequence of memory locations, where data is stored. 
 
+---
 ## How it works
 
 ### Structure
@@ -16,6 +17,7 @@ Under the hood, the array itself is just a pointer to its first element. The 'in
 When the array is full, a new larger block of memory is allocated (typically double the previous capacity, to keep future resizes
 infrequent), and all elements are copied to it, then the old block is freed.
 
+---
 ## Operations
 
 | Function | Description | Time complexity |
@@ -32,6 +34,7 @@ infrequent), and all elements are copied to it, then the old block is freed.
 | empty_dynamic_array | Resets the array size to 0 without freeing its allocated memory, allowing it to be reused. | O(1) |
 | destroy_dynamic_array | Frees the allocated memory of the dynamic array. Used when the array is no longer needed. | O(1) |
 
+---
 ## Example
 
 ```c
