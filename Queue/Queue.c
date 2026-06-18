@@ -17,7 +17,21 @@
 # include <stdlib.h>
 # include <stdbool.h>
 
+// Creates a new queue
+Queue create_queue(){
+    Queue new_queue;
 
+    Stack *stack1 = malloc(sizeof(Stack));
+    stack1->top = NULL;
+
+    Stack *stack2 = malloc(sizeof(Stack));
+    stack2->top = NULL;
+
+    new_queue.Stack1 = stack1;
+    new_queue.Stack2 = stack2;
+    
+    return new_queue;
+}
 
 // Adds an element to the queue
 // Uses stack 1 to store elements
