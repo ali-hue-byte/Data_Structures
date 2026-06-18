@@ -1,7 +1,4 @@
 /* This file provides necessary functions to implement a Queue using two stacks
-   Possible operations for Queue :
-   - enqueue: Add an element to its rear
-   - dequeue: Remove an element from the front 
 
    With two stacks it is possible to make a Queue, using one stack
    to add elements, and the second one to remove the first added element.
@@ -9,6 +6,11 @@
    This can be simulated by moving the elements from stack 1 to stack 2,
    using pop function of the Stack. This reverses the order of the elements,
    allowing the oldest element to be removed first.
+
+   Possible operations for Queue :
+   - enqueue: Add an element to its rear
+   - dequeue: Remove an element from the front 
+   
 */
 
 # include "../Stack/stack.h"
