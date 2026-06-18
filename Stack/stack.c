@@ -80,8 +80,9 @@ void empty_stack(Stack *stack){
         now = now->next;
         free(stack->top); // Frees memory of the current top
         stack->top = now; // Changes top to the next Node
-        stack->size = 0;
+        
     };
+    stack->size = 0;
 }
 
 // Returns the number of elements in the stack
