@@ -58,9 +58,13 @@ Data_Structures/
 │   ├── dynamic_array.c
 │   ├── dynamic_array.h
 │   └── README.md
-└── Hash_Table/
-    ├── hash_table.c
-    ├── hash_table.h
+├── Hash_Table/
+│   ├── hash_table.c
+│   ├── hash_table.h
+│   └── README.md
+└── Linked_List/
+    ├── linked_list.c
+    ├── linked_list.h
     └── README.md
 ```
 
