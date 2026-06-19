@@ -20,6 +20,7 @@ libraries.
 ### Planned implementations
 - **Graph**
 - **Heap**
+- **Binary Search Tree**
 
 ## Project structure
 
