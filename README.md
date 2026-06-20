@@ -17,10 +17,13 @@ libraries.
 - **Hash Table (with separate chaining)**
 - **Linked List**
 
+### In progress...
+- **Binary Search Tree**
+
 ### Planned implementations
 - **Graph**
 - **Heap**
-- **Binary Search Tree**
+
 
 ## Project structure
 
