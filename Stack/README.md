@@ -25,13 +25,13 @@ If the stack is empty (top == NULL), there is nothing to pop or peek at.
 | Function | Description | Time complexity |
 |----------|-------------|-----------------|
 | create_stack | Creates a new stack. | O(1) |
-| stack_is_empty | Checks if the stack is empty (top == NULL). | O(1) |
-| stack_push | Adds a new value to the stack by creating a new node and setting it as the new top of the stack. | O(1) |
-| stack_pop | Returns and removes the top value of the stack by saving its value, updating the top pointer to the next node, and freeing the old top node. | O(1) |
-| stack_peek | Returns the last added value to the stack, without removing it. | O(1) |
-| print_stack | Prints the stack. | O(n) |
-| empty_stack | Removes all the values from the stack. | O(n) |
-| stack_size | Returns the number of elements in the stack. | O(1) |
+| stack_is_empty(stack) | Checks if the stack is empty (top == NULL). | O(1) |
+| stack_push(stack, value) | Adds a new value to the stack by creating a new node and setting it as the new top of the stack. | O(1) |
+| stack_pop(stack) | Returns and removes the top value of the stack by saving its value, updating the top pointer to the next node, and freeing the old top node. | O(1) |
+| stack_peek(stack) | Returns the last added value to the stack, without removing it. | O(1) |
+| print_stack(stack) | Prints the stack. | O(n) |
+| empty_stack(stack) | Removes all the values from the stack. | O(n) |
+| stack_size(stack) | Returns the number of elements in the stack. | O(1) |
 
 ---
 ## Example 
