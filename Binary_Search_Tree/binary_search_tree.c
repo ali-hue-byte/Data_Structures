@@ -321,3 +321,63 @@ int Node_height(Node *node){
 int BST_height(BST *bst){
     return Node_height(bst->root);
 }
+
+
+
+void nodes(Dynamic_Array *arr, Node *node){
+    if(node == NULL) return;
+    nodes(arr, node->left);
+    dynamic_array_append(arr, node->value);
+    nodes(arr, node->right);
+}
+
+Dynamic_Array BST_get_values(BST *bst){
+     if(is_empty_BST(bst)) 
+    {
+        printf("BST is empty\n");
+        return create_dynamic_array();
+    }
+    
+    Dynamic_Array d_arr = create_dynamic_array();
+    nodes(&d_arr, bst->root);
+    return d_arr;
+}
+
+int BST_kth_smallest(BST *bst, int k){
+    
+    if(is_empty_BST(bst)){
+        printf("BST is empty\n");
+        return -1;
+    }
+    else if (k <= 0 || k > bst->size){
+        printf("Invalid k: %d ", k);
+        return -1;
+    }
+    else{
+        Dynamic_Array bst_arr = BST_get_values(bst);
+        int nb = dynamic_array_value(&bst_arr, k-1);
+        free(bst_arr.data);
+        return nb;
+    }
+
+    
+}
+
+int BST_kth_largest(BST *bst, int k){
+    if(is_empty_BST(bst)){
+        printf("BST is empty: ");
+        return -1;
+    }
+    else if (k <= 0 || k > bst->size){
+        printf("Invalid k: %d: ", k);
+        return -1;
+    }
+    else{
+        Dynamic_Array bst_arr = BST_get_values(bst);
+        int size = bst->size;
+        int nb = dynamic_array_value(&bst_arr, size-k);
+        free(bst_arr.data);
+        return nb;
+    }
+}
+
