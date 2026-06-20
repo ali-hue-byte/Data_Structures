@@ -22,5 +22,9 @@ bool is_empty_BST(BST *bst);
 bool is_leaf_BST_Node(Node *node);
 void print_BST(BST *bst);
 void empty_BST(BST *bst);
+bool search_BST(BST *bst, int value);
+int BST_min(BST *bst);
+int BST_max(BST *bst);
+int BST_height(BST *bst);
 
 #endif
