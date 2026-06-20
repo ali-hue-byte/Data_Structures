@@ -16,8 +16,6 @@ libraries.
 - **Stack**
 - **Hash Table (with separate chaining)**
 - **Linked List**
-
-### In progress...
 - **Binary Search Tree**
 
 ### Planned implementations
