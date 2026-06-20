@@ -26,7 +26,7 @@ int main(void) {
     BST_insert(&bst, 7);
     BST_insert(&bst, 12);
     BST_insert(&bst, 20);
-    BST_insert(&bst, 10); // Value already exixts: 10
+    BST_insert(&bst, 10); // Value already exists: 10
 
     printf("BST: ");
     print_BST(&bst); // 3 5 7 10 12 15 20
