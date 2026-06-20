@@ -1,6 +1,8 @@
 #ifndef BINARYSEARCHTREE_H
 #define BINARYSEARCHTREE_H
 
+#include "../Array/dynamic_array.h"
+
 typedef struct Node{
     int value;
     struct Node* left;
@@ -26,5 +28,8 @@ bool search_BST(BST *bst, int value);
 int BST_min(BST *bst);
 int BST_max(BST *bst);
 int BST_height(BST *bst);
+Dynamic_Array BST_get_values(BST *bst);
+int BST_kth_smallest(BST *bst, int k);
+int BST_kth_largest(BST *bst, int k);
 
 #endif
