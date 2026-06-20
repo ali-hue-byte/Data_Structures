@@ -21,5 +21,6 @@ int BST_length(BST *bst);
 bool is_empty_BST(BST *bst);
 bool is_leaf_BST_Node(Node *node);
 void print_BST(BST *bst);
+void empty_BST(BST *bst);
 
 #endif
