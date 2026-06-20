@@ -23,16 +23,16 @@ Once the transfer is complete (or if Stack2 was already not empty), the top elem
 
 | Function | Description | Time complexity |
 |----------|-------------|-----------------|
-| create_queue | Creates a new queue | O(1) |
-| enqueue(queue, value) | Adds a new element to the queue, precisely to StackA (rear of the queue). | O(1) |
-| dequeue(queue) | Removes and returns oldest element. If Stack2 is empty, all elements from Stack1 are moved to Stack2 (reversing order), then the top of Stack2 is popped. | - O(1): when no moving between stacks is needed. <br> - O(n): when elements must be moved from Stack1 to Stack2. |
-| queue_peek(queue) | Returns the oldest element without removing it. If Stack2 is empty, all elements from Stack1 are moved to Stack2 (reversing order), then the top of Stack2 is saved. | - O(1): when no moving between stacks is needed. <br> - O(n): when elements must be moved from Stack1 to Stack2. |
-| print_stack_bottom_to_top(node) | Helper function that uses recursion to print a reversed stack. | O(n) |
-| print_queue(queue) | Prints all the elements of the queue. | O(n) |
-| queue_is_empty(queue) | Checks if the queue is empty. | O(1) |
-| empty_queue(queue) | Removes all elements from the queue by removing them from Stack1 and Stack2. | O(n) |
-| destroy_queue(queue) | Frees all elements and the stacks themselves. Used when the queue is no longer needed | O(n) |
-| queue_size(queue) | Returns the number of elements in the queue (number of elements in both Stack1 and Stack2). | O(1) |
+| create_queue() | Creates a new queue | O(1) |
+| enqueue(Queue *queue, int i) | Adds a new element to the queue, precisely to StackA (rear of the queue). | O(1) |
+| dequeue(Queue *queue) | Removes and returns oldest element. If Stack2 is empty, all elements from Stack1 are moved to Stack2 (reversing order), then the top of Stack2 is popped. | - O(1): when no moving between stacks is needed. <br> - O(n): when elements must be moved from Stack1 to Stack2. |
+| queue_peek(Queue *queue) | Returns the oldest element without removing it. If Stack2 is empty, all elements from Stack1 are moved to Stack2 (reversing order), then the top of Stack2 is saved. | - O(1): when no moving between stacks is needed. <br> - O(n): when elements must be moved from Stack1 to Stack2. |
+| print_stack_bottom_to_top(Node *node) | Helper function that uses recursion to print a reversed stack. | O(n) |
+| print_queue(Queue *queue) | Prints all the elements of the queue. | O(n) |
+| queue_is_empty(Queue *queue) | Checks if the queue is empty. | O(1) |
+| empty_queue(Queue *queue) | Removes all elements from the queue by removing them from Stack1 and Stack2. | O(n) |
+| destroy_queue(Queue *queue) | Frees all elements and the stacks themselves. Used when the queue is no longer needed | O(n) |
+| queue_size(Queue *queue) | Returns the number of elements in the queue (number of elements in both Stack1 and Stack2). | O(1) |
 
 ---
 ## Example
