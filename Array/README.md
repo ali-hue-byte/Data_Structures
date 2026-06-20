@@ -33,6 +33,7 @@ infrequent), and all elements are copied to it, then the old block is freed.
 | is_empty_dynamic_array | Checks if array is empty. | O(1) |
 | empty_dynamic_array | Resets the array size to 0 without freeing its allocated memory, allowing it to be reused. | O(1) |
 | destroy_dynamic_array | Frees the allocated memory of the dynamic array. Used when the array is no longer needed. | O(1) |
+| dynamic_array_get_index | Returns the index of a given value | O(n) in worst case |
 
 ---
 ## Example
