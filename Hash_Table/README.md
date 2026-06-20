@@ -30,16 +30,16 @@ If the number of stored elements becomes equal to the capacity of the table, the
 |----------|-------------|-----------------|
 | Hash_function | Transforms a key to a valid index for the hash table. | O(k), where k is the length of the key. |
 | create_hash_table | Creates a new hash table. | O(1) |
-| is_empty_hash_table | Checks if the Hash Table is empty. | O(1) |
-| Key_in_Hash_Table | Checks if a key is in the Hash Table. | - O(1): best case, if the bucket is empty, or the key is the first element in the linked list. <br> - O(n): in worst case, all n elements hash to the same index, so you traverse the entire linked list. <br> - Average case: O(1). |
-| Hash_Table_add | If necessary, it allocates a new memory block to the hash table, rehashes all elements, and copies them from old array to new one, with their new indexes. Then inserts the new key-value pair to its appropriate index in the array, by setting it's next to the previous head of the linked list at that index, and changing the head of the chain to the new pair. | - O(1): if the table isn't full. <br> - O(n): when the table must be resized and all elements have to be rehashed and copied.  |
-| Hash_Table_get | Returns the value of a given key. | - O(1): best case, if the bucket is empty, or the key is the first element in the linked list. <br> - O(n): in worst case, all n elements hash to the same index, so you traverse the entire linked list. <br> - Average case: O(1). |  
-| Hash_Table_delete | Deletes a key-value pair from the Hash_Table. | - O(1): best case, if the bucket is empty, or the key is the first element in the linked list. <br> - O(n): in worst case, all n elements hash to the same index, so you traverse the entire linked list <br> - Average case: O(1). |
-| Hash_Table_empty | Frees all nodes in the hash table and resets it to empty. | O(n) |
-| print_Hash_Table | Prints the hash table. | O(n) |
-| Hash_Table_size | Returns the number of elements in the Hash Table. | O(1) |
-| Hash_Table_update | Updates the value associated with a given key. |  - O(1): best case, if the bucket is empty, or the key is the first element in the linked list. <br> - O(n): in worst case, all n elements hash to the same index, so you traverse the entire linked list <br> - Average case: O(1). |
-| destroy_hash_table | Frees all elements and the internal array. Used when the hash table is no longer needed. | O(n) |
+| is_empty_hash_table(Hash_Table) | Checks if the Hash Table is empty. | O(1) |
+| Key_in_Hash_Table(Hash_Table, key) | Checks if a key is in the Hash Table. | - O(1): best case, if the bucket is empty, or the key is the first element in the linked list. <br> - O(n): in worst case, all n elements hash to the same index, so you traverse the entire linked list. <br> - Average case: O(1). |
+| Hash_Table_add(Hash_Table, key, value) | If necessary, it allocates a new memory block to the hash table, rehashes all elements, and copies them from old array to new one, with their new indexes. Then inserts the new key-value pair to its appropriate index in the array, by setting it's next to the previous head of the linked list at that index, and changing the head of the chain to the new pair. | - O(1): if the table isn't full. <br> - O(n): when the table must be resized and all elements have to be rehashed and copied.  |
+| Hash_Table_get(Hash_Table, key) | Returns the value of a given key. | - O(1): best case, if the bucket is empty, or the key is the first element in the linked list. <br> - O(n): in worst case, all n elements hash to the same index, so you traverse the entire linked list. <br> - Average case: O(1). |  
+| Hash_Table_delete(Hash_Table, key) | Deletes a key-value pair from the Hash_Table. | - O(1): best case, if the bucket is empty, or the key is the first element in the linked list. <br> - O(n): in worst case, all n elements hash to the same index, so you traverse the entire linked list <br> - Average case: O(1). |
+| Hash_Table_empty(Hash_Table) | Frees all nodes in the hash table and resets it to empty. | O(n) |
+| print_Hash_Table(Hash_Table) | Prints the hash table. | O(n) |
+| Hash_Table_size(Hash_Table) | Returns the number of elements in the Hash Table. | O(1) |
+| Hash_Table_update(Hash_Table, key, value) | Updates the value associated with a given key. |  - O(1): best case, if the bucket is empty, or the key is the first element in the linked list. <br> - O(n): in worst case, all n elements hash to the same index, so you traverse the entire linked list <br> - Average case: O(1). |
+| destroy_hash_table(Hash_Table) | Frees all elements and the internal array. Used when the hash table is no longer needed. | O(n) |
 
 ---
 ## Example
