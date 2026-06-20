@@ -220,6 +220,24 @@ void BST_delete(BST *bst, int value){
     }
 }
 
+void empty_node(BST *bst, Node *node){
+    if(node == NULL) return;
+    empty_node(bst, node->left);
+    if (node != bst->root){
+        if(node->parent->left == node) node->parent->left = NULL;
+        if(node->parent->right == node) node->parent->right = NULL;
+    }else{
+        bst->root = NULL;
+    }
+    Node *r = node->right;
+    free(node);
+    empty_node(bst, r);
+}
+
+void empty_BST(BST *bst){
+   empty_node(bst, bst->root);
+   bst->size = 0;
+}
 
 void print_node(Node *node){
     if(node == NULL) return;
@@ -228,6 +246,11 @@ void print_node(Node *node){
     print_node(node->right);
 }
 void print_BST(BST *bst){
+    if(is_empty_BST(bst)) 
+    {
+        printf("BST is empty\n");
+        return;
+    }
     print_node(bst->root);
 }
 
@@ -242,3 +265,4 @@ bool is_empty_BST(BST *bst){
 bool is_leaf_BST_Node(Node *node){
     return (node->left == NULL && node->right == NULL);
 }
+
