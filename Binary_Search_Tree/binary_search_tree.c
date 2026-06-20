@@ -57,7 +57,7 @@ void BST_insert(BST *bst, int value){
 
             current = current->left;
         }else{
-            printf("Value already exixts: %d\n", value);
+            printf("Value already exists: %d\n", value);
             free(new_Node);
             return;
         }
