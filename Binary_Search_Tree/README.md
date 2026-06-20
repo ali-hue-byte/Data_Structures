@@ -68,3 +68,8 @@ int main(void) {
 }
 
 ```
+
+---
+## Visualisation of the BST used in the example
+
+<img width="1723" height="283" alt="image" src="https://github.com/user-attachments/assets/72162ed8-a9a2-4ed1-bd87-f86de56bdb6f" />
