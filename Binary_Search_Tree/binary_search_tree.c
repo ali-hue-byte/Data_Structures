@@ -239,6 +239,23 @@ void empty_BST(BST *bst){
    bst->size = 0;
 }
 
+bool search_BST(BST *bst, int value){
+    if(is_empty_BST(bst)){
+        return false;
+    }
+    Node *current = bst->root;
+    while(current != NULL){
+        if (current->value == value){
+            return true;
+        }else if (value > current->value){
+            current = current->right;
+        }else if (value < current->value){
+            current = current->left;
+        }
+    }
+    return false;
+}
+
 void print_node(Node *node){
     if(node == NULL) return;
     print_node(node->left);
@@ -266,3 +283,41 @@ bool is_leaf_BST_Node(Node *node){
     return (node->left == NULL && node->right == NULL);
 }
 
+int BST_min(BST *bst){
+    if(is_empty_BST(bst)){
+        printf("BST is empty: ");
+        return 0;
+    }
+    Node *current = bst->root;
+    while(current->left != NULL){
+        current = current->left;
+    }
+
+    return current->value;
+    
+}
+
+int BST_max(BST *bst){
+    if(is_empty_BST(bst)){
+        printf("BST is empty: ");
+        return 0;
+    }
+    Node *current = bst->root;
+    while(current->right != NULL){
+        current = current->right;
+    }
+
+    return current->value;
+    
+}
+
+
+int Node_height(Node *node){
+    if(node == NULL) return 0;
+    int left = Node_height(node->left);
+    int right = Node_height(node->right);
+    return 1 + (left > right ? left : right);
+}
+int BST_height(BST *bst){
+    return Node_height(bst->root);
+}
