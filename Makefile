@@ -4,7 +4,7 @@
 CC = gcc
 CFLAGS = -Wall -c
 
-OBJECTS = stack.o queue.o dynamic_array.o hash_table.o
+OBJECTS = stack.o queue.o dynamic_array.o hash_table.o binary_search_tree.o algorithms.o
 LIB_NAME = libds.a
 
 all: $(LIB_NAME)
@@ -26,6 +26,9 @@ hash_table.o: Hash_Table/hash_table.c Hash_Table/hash_table.h
 	
 binary_search_tree.o: Binary_Search_Tree/binary_search_tree.c Binary_Search_Tree/binary_search_tree.h
 	$(CC) $(CFLAGS) Binary_Search_Tree/binary_search_tree.c -o binary_search_tree.o
+
+algorithms.o: Algorithms/algorithms.c Algorithms/algorithms.h
+	$(CC) $(CFLAGS) Algorithms/algorithms.c -o algorithms.o
 
 clean:
 	rm -f *.o $(LIB_NAME)
