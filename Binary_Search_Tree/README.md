@@ -34,6 +34,29 @@ The node is replaced with its inorder successor, which is then removed from its 
 The root has no parent, so it is handled separately. It also has the same three cases as every node : *leaf*, *one child* and *two children*.
 
 ---
+## Limitations
+
+A BST is not self-balancing. Inserting sorted data can degenerate the tree into a linked list.
+
+Example:
+```
+inserting: 1 2 3 4 5
+
+1
+ \
+  2
+   \
+    3
+     \
+      4
+       \
+        5
+```
+In this case, search, insertion and deletion become O(n).
+
+Self-balancing trees such as AVL trees solve this issue.
+
+---
 ## Operations
 
 | Functions | Description | Time complexity |
