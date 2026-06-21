@@ -20,7 +20,7 @@
 Dynamic_Array sort_dynamic_array(Dynamic_Array *d_arr){
     BST bst = create_BST();
     for(int i = 0; i < get_dynamic_array_length(d_arr); i++){
-        BST_insert(&bst, dynamic_array_value(d_arr, i));
+        BST_insert_silent(&bst, dynamic_array_value(d_arr, i));
     }
     Dynamic_Array result = BST_get_values(&bst);
     empty_BST(&bst);
