@@ -15,7 +15,7 @@ struct Circular_Double_Linked_List{
     int size;
 };
 
-Circular_Double_Linked_List creat_CDLL();
+Circular_Double_Linked_List create_CDLL();
 CDLL_Node *CDLL_push_back(Circular_Double_Linked_List *lst, int value);
 CDLL_Node *CDLL_push_front(Circular_Double_Linked_List *lst, int value);
 CDLL_Node *CDLL_insert_after(Circular_Double_Linked_List *lst, CDLL_Node *node, int value);
