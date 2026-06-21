@@ -26,15 +26,15 @@ When inserting or deleting a node, only the pointers of the neighboring nodes ne
 | create_CDLL() | Creates a new Circular Doubly Linked List. | O(1) |
 | CDLL_push_back(Circular_Double_Linked_List *lst, int value) | Adds a new node to the back of the linked list, and returns it for future uses. | O(1) |
 | CDLL_push_front(Circular_Double_Linked_List *lst, int value) | Adds a new node to the front of the linked list, and returns it for future uses. | O(1) |
-| CDLL_insert_after(Circular_Double_Linked_List *lst, Node *node, int value) | Adds a new node after a given one. | O(1) |
-| CDLL_insert_before(Circular_Double_Linked_List *lst, Node *node, int value) | Adds a new node before a given one. | O(1) |
-| CDLL_get_node_value(Circular_Double_Linked_List *lst, Node *node) | Returns the value stored in a given node. | O(1) |
+| CDLL_insert_after(Circular_Double_Linked_List *lst, CDLL_Node *node, int value) | Adds a new node after a given one. | O(1) |
+| CDLL_insert_before(Circular_Double_Linked_List *lst, CDLL_Node *node, int value) | Adds a new node before a given one. | O(1) |
+| CDLL_get_node_value(Circular_Double_Linked_List *lst, CDLL_Node *node) | Returns the value stored in a given node. | O(1) |
 | CDLL_front(Circular_Double_Linked_List *lst) | Returns the value in the front of the Linked List. | O(1) |
 | CDLL_back(Circular_Double_Linked_List *lst) | Returns the value in the back of the Linked List | O(1) |
 | CDLL_pop_front(Circular_Double_Linked_List *lst) | Returns and removes the value in the front of the Linked List. | O(1) |
 | CDLL_pop_back(Circular_Double_Linked_List *lst) | Returns and removes the value in the back of the Linked List. | O(1) |
-| CDLL_update_node_value(Circular_Double_Linked_List *lst, Node *node, int value) | Changes the value at a given node. | O(1) |
-| CDLL_delete_node(Circular_Double_Linked_List *lst, Node *node) | Deletes a given node. | O(1) |
+| CDLL_update_node_value(Circular_Double_Linked_List *lst, CDLL_Node *node, int value) | Changes the value at a given node. | O(1) |
+| CDLL_delete_node(Circular_Double_Linked_List *lst, CDLL_Node *node) | Deletes a given node. | O(1) |
 | print_CDLL(Circular_Double_Linked_List *lst) | Prints the Linked List. | O(n) |
 | CDLL_get_length(Circular_Double_Linked_List *lst) | Returns number of elements in the linked list. | O(1) |
 | CDLL_is_empty(Circular_Double_Linked_List *lst) | Checks if the Linked List is empty. | O(1) |
