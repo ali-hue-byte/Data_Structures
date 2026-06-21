@@ -91,6 +91,53 @@ void BST_insert(BST *bst, int value){
 
 }
 
+// Same function but doesn't print error messages
+void BST_insert_silent(BST *bst, int value){
+   
+    BST_Node* new_Node = malloc(sizeof(BST_Node));
+    new_Node->value = value;
+    new_Node->left = NULL;
+    new_Node->right = NULL;
+    
+    // If the BST is empty, the new Node is the root
+    if(is_empty_BST(bst)){
+        new_Node->parent = NULL;
+        bst->root = new_Node;
+        bst->size++;
+        return;
+    }
+
+    BST_Node *current = bst->root;
+    // Walk the tree to find the correct position
+    while(true){
+        if (value > current->value){ 
+            if(current->right == NULL){ // Place found
+                new_Node->parent = current;
+                current->right = new_Node;
+                bst->size++;
+                return;
+            }
+            
+            current = current->right; // Go to right
+        }else if (value < current->value){
+            if(current->left == NULL){ // Place found
+                new_Node->parent = current;
+                current->left = new_Node;
+                bst->size++;
+                return;
+            }
+
+            current = current->left; // Go to left
+        }else{
+            free(new_Node);
+            return;
+        }
+
+    }
+
+}
+
+
 // Deletes an element from the BST
 void BST_delete(BST *bst, int value){
     if(is_empty_BST(bst)){
