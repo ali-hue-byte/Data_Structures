@@ -36,8 +36,8 @@ BST create_BST(){
 }
 
 // Finds the successor of a Node, which is the smallest value in the right subtree
-Node *successor(Node *node){
-    Node *current = node->right;
+BST_Node *successor(BST_Node *node){
+    BST_Node *current = node->right;
     while(current->left != NULL){
         current = current->left;
     }
@@ -47,7 +47,7 @@ Node *successor(Node *node){
 // Inserts an element to it's corresponding place in the tree based on the BST property
 void BST_insert(BST *bst, int value){
    
-    Node* new_Node = malloc(sizeof(Node));
+    BST_Node* new_Node = malloc(sizeof(BST_Node));
     new_Node->value = value;
     new_Node->left = NULL;
     new_Node->right = NULL;
@@ -60,7 +60,7 @@ void BST_insert(BST *bst, int value){
         return;
     }
 
-    Node *current = bst->root;
+    BST_Node *current = bst->root;
     // Walk the tree to find the correct position
     while(true){
         if (value > current->value){ 
@@ -98,7 +98,7 @@ void BST_delete(BST *bst, int value){
         return;
     }
     
-    Node *current = bst->root;
+    BST_Node *current = bst->root;
 
     if(current->value == value){ // First case: the given value's node is the root
         if(current->right == NULL && current->left == NULL){ // The node is a leaf
@@ -119,13 +119,13 @@ void BST_delete(BST *bst, int value){
         }else{ // A node with two children
 
             // Replace the node with its inorder successor
-            Node *success = successor(current); 
-            Node *succ_parent = success->parent; 
+            BST_Node *success = successor(current); 
+            BST_Node *succ_parent = success->parent; 
 
-            Node *Right = current->right;
-            Node *Left = current->left;
+            BST_Node *Right = current->right;
+            BST_Node *Left = current->left;
 
-            Node *succ_right = success->right;
+            BST_Node *succ_right = success->right;
             if(success->right == NULL){ // If the successor is a leaf
 
                 free(bst->root);
@@ -199,13 +199,13 @@ void BST_delete(BST *bst, int value){
         }else{ // A node with two children
 
             // Replace the node with its inorder successor
-            Node *success = successor(current);
-            Node *succ_parent = success->parent;
+            BST_Node *success = successor(current);
+            BST_Node *succ_parent = success->parent;
 
-            Node *Right = current->right;
-            Node *Left = current->left;
+            BST_Node *Right = current->right;
+            BST_Node *Left = current->left;
 
-            Node *succ_right = success->right;
+            BST_Node *succ_right = success->right;
             if(success->right == NULL){
                 success->parent = current->parent;
                 
@@ -252,7 +252,7 @@ void BST_delete(BST *bst, int value){
 }
 
 // Helper recursive function: Frees every node starting from a given node
-void empty_node(BST *bst, Node *node){
+void empty_node(BST *bst, BST_Node *node){
     if(node == NULL) return;
     empty_node(bst, node->left);
     if (node != bst->root){
@@ -262,7 +262,7 @@ void empty_node(BST *bst, Node *node){
         bst->root = NULL;
     }
     // Save right child before freeing to avoid use-after-free
-    Node *r = node->right;
+    BST_Node *r = node->right;
     free(node);
     empty_node(bst, r);
 }
@@ -278,7 +278,7 @@ bool search_BST(BST *bst, int value){
     if(is_empty_BST(bst)){
         return false;
     }
-    Node *current = bst->root;
+    BST_Node *current = bst->root;
     while(current != NULL){
         if (current->value == value){
             return true;
@@ -292,7 +292,7 @@ bool search_BST(BST *bst, int value){
 }
 
 // Helper recursive function: Prints every value starting from a given node
-void print_node(Node *node){
+void print_node(BST_Node *node){
     if(node == NULL) return;
     print_node(node->left);
     printf("%d ", node->value);
@@ -320,7 +320,7 @@ bool is_empty_BST(BST *bst){
 }
 
 // Checks if a Node is a leaf
-bool is_leaf_BST_Node(Node *node){
+bool is_leaf_BST_Node(BST_Node *node){
     return (node->left == NULL && node->right == NULL);
 }
 
@@ -330,7 +330,7 @@ int BST_min(BST *bst){
         printf("BST is empty: ");
         return 0;
     }
-    Node *current = bst->root;
+    BST_Node *current = bst->root;
     while(current->left != NULL){
         current = current->left;
     }
@@ -345,7 +345,7 @@ int BST_max(BST *bst){
         printf("BST is empty: ");
         return 0;
     }
-    Node *current = bst->root;
+    BST_Node *current = bst->root;
     while(current->right != NULL){
         current = current->right;
     }
@@ -356,7 +356,7 @@ int BST_max(BST *bst){
 
 // Helper recursive function: returns the number of edges on 
 // the longest path from that node down to a leaf
-int Node_height(Node *node){
+int Node_height(BST_Node *node){
     if(node == NULL) return 0;
     // Recursively compute height of left and right subtrees
     int left = Node_height(node->left);
@@ -371,7 +371,7 @@ int BST_height(BST *bst){
 
 
 // Helper recursive function: inserts every value to a dynamic array starting from a given node
-void nodes(Dynamic_Array *arr, Node *node){
+void nodes(Dynamic_Array *arr, BST_Node *node){
     if(node == NULL) return;
     nodes(arr, node->left);
     dynamic_array_append(arr, node->value);
