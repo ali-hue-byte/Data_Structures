@@ -6,5 +6,7 @@
 #include "Array/dynamic_array.h"
 #include "Hash_Table/hash_table.h"
 #include "Binary_Search_Tree/binary_search_tree.h"
+#include "Algorithms/algorithms.h"
+#include "Linked_List/linked_list.h"
 
 #endif
