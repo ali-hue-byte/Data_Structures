@@ -2,6 +2,7 @@
 
 ### Description
 
+A collection of utility functions that combine multiple data structures from the library to solve common algorithmic problems.
 
 ### Functions
 
