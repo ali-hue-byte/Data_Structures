@@ -18,6 +18,7 @@ typedef struct BST{
 
 BST create_BST();
 void BST_insert(BST *bst, int value);
+void BST_insert_silent(BST *bst, int value);
 void BST_delete(BST *bst, int value);
 int BST_length(BST *bst);
 bool is_empty_BST(BST *bst);
