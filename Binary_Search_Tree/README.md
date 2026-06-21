@@ -39,22 +39,22 @@ The root has no parent, so it is handled separately. It also has the same three 
 | Functions | Description | Time complexity |
 |-----------|-------------|-----------------|
 | create_BST | Creates a new Binary Search Tree | O(1) |
-| successor(Node *node) | Finds the successor of a Node, which is the smallest value in the right subtree. | - Average: O(log(n)) <br> - Worst case: O(n) |
+| successor(BST_Node *node) | Finds the successor of a Node, which is the smallest value in the right subtree. | - Average: O(log(n)) <br> - Worst case: O(n) |
 | BST_insert(BST *bst, int value) | Inserts an element to it's corresponding place in the tree based on the BST property. | - Average: O(log(n)) <br> - Worst case: O(n) |
 | BST_delete(BST *bst, int value) | Deletes an element from the BST. | - Average: O(log(n)) <br> - Worst case: O(n) |
-| empty_node(BST *bst, Node *node) | Helper recursive function: Frees every node starting from a given node. | O(n) |
+| empty_node(BST *bst, BST_Node *node) | Helper recursive function: Frees every node starting from a given node. | O(n) |
 | empty_BST(BST *bst) | Empties the BST, using empty_node function. | O(n) |
 | search_BST(BST *bst, int value) | Checks if a value is in the BST. | - Average: O(log(n)) <br> - Worst case: O(n) |
-| print_node(Node *node) | Helper recursive function: Prints every value starting from a given node. | O(n) |
+| print_node(BST_Node *node) | Helper recursive function: Prints every value starting from a given node. | O(n) |
 | print_BST(BST *bst) | Prints every element of the BST from smallest to largest, using print_node funtion. | O(n) |
 | BST_length(BST *bst) | Returns number of elements in the BST. | O(1) |
 | is_empty_BST(BST *bst) | Checks if the BST is empty. | O(1) |
-| is_leaf_BST_Node(Node *node) | Helper function: Checks if a Node is a leaf. | O(1) |
+| is_leaf_BST_Node(BST_Node *node) | Helper function: Checks if a Node is a leaf. | O(1) |
 | BST_min(BST *bst) | Returns the minimum value in a BST. | - Average: O(log(n)) <br> - Worst case: O(n) |
 | BST_max(BST *bst) | Returns the maximum value in a BST. | - Average: O(log(n)) <br> - Worst case: O(n) |
-| Node_height(Node *node) | Helper recursive function: returns the number of edges on the longest path from that node down to a leaf. | O(n) |
+| Node_height(BST_Node *node) | Helper recursive function: returns the number of edges on the longest path from that node down to a leaf. | O(n) |
 | BST_height(BST *bst) | Returns the height of the BST. | O(n) |
-| nodes(Dynamic_Array *arr, Node *node) | Helper recursive function: inserts every value to a dynamic array starting from a given node. | O(n) |
+| nodes(Dynamic_Array *arr, BST_Node *node) | Helper recursive function: inserts every value to a dynamic array starting from a given node. | O(n) |
 | BST_get_values(BST *bst) | Returns a dynamic array of the BST values (sorted). Caller is responsible for freeing the returned array's data (free(array.data)). | O(n) |
 | BST_kth_smallest(BST *bst, int k) | Returns the kth smallest value in the BST. | O(n) |
 | BST_kth_largest(BST *bst, int k) | Returns the kth largest value in the BST. | O(n) |
