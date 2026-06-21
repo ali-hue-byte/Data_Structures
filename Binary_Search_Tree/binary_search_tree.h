@@ -3,16 +3,16 @@
 
 #include "../Array/dynamic_array.h"
 
-typedef struct Node{
+typedef struct BST_Node{
     int value;
-    struct Node* left;
-    struct Node* right;
-    struct Node* parent;
+    struct BST_Node* left;
+    struct BST_Node* right;
+    struct BST_Node* parent;
     
-} Node;
+} BST_Node;
 
 typedef struct BST{
-    Node* root;
+    BST_Node* root;
     int size;
 } BST;
 
@@ -21,7 +21,6 @@ void BST_insert(BST *bst, int value);
 void BST_delete(BST *bst, int value);
 int BST_length(BST *bst);
 bool is_empty_BST(BST *bst);
-bool is_leaf_BST_Node(Node *node);
 void print_BST(BST *bst);
 void empty_BST(BST *bst);
 bool search_BST(BST *bst, int value);
