@@ -18,6 +18,9 @@ libraries.
 - **Linked List**
 - **Binary Search Tree**
 
+### Algorithms
+A separate `Algorithms/` folder contains utility functions that combine multiple data structures to solve common algorithmic problems.
+
 ### Planned implementations
 - **Graph**
 - **Heap**
@@ -46,7 +49,11 @@ just run `make` (or `mingw32-make` on Windows) once, and link against
 ```
 Data_Structures/
 ├── Makefile        
-├── ds.h            
+├── ds.h
+├── Algorithms/
+│   ├── algorithms.c
+│   ├── algorithms.h
+│   └── README.md            
 ├── Stack/
 │   ├── stack.c
 │   ├── stack.h
