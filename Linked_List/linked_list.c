@@ -31,8 +31,8 @@ Circular_Double_Linked_List create_CDLL(){
 }
 
 // Adds a new node to the back of the linked list
-Node *CDLL_push_back(Circular_Double_Linked_List *lst, int value){
-    Node *newNode = malloc(sizeof(Node));
+CDLL_Node *CDLL_push_back(Circular_Double_Linked_List *lst, int value){
+    CDLL_Node *newNode = malloc(sizeof(CDLL_Node));
     newNode->data = value;
     newNode->CDLL = lst; 
     if(CDLL_is_empty(lst)){
@@ -43,7 +43,7 @@ Node *CDLL_push_back(Circular_Double_Linked_List *lst, int value){
         
     }else{
         // New node is head's previous and last Node's next
-        Node *last = lst->head->previous; 
+        CDLL_Node *last = lst->head->previous; 
 
         newNode->next = lst->head;
         newNode->previous = last;
@@ -55,8 +55,8 @@ Node *CDLL_push_back(Circular_Double_Linked_List *lst, int value){
 }
 
 // Adds a new node to the front of the linked list
-Node *CDLL_push_front(Circular_Double_Linked_List *lst, int value){
-    Node *newNode = malloc(sizeof(Node));
+CDLL_Node *CDLL_push_front(Circular_Double_Linked_List *lst, int value){
+    CDLL_Node *newNode = malloc(sizeof(CDLL_Node));
     newNode->data = value;
     newNode->CDLL = lst;
     if(CDLL_is_empty(lst)){
@@ -67,7 +67,7 @@ Node *CDLL_push_front(Circular_Double_Linked_List *lst, int value){
         
     }else{
         // New node is the new head
-        Node *last = lst->head->previous; 
+        CDLL_Node *last = lst->head->previous; 
 
         newNode->next = lst->head;
         newNode->previous = last;
@@ -82,7 +82,7 @@ Node *CDLL_push_front(Circular_Double_Linked_List *lst, int value){
 }
 
 // Adds a new node after a given one
-Node *CDLL_insert_after(Circular_Double_Linked_List *lst, Node *node, int value){
+CDLL_Node *CDLL_insert_after(Circular_Double_Linked_List *lst, CDLL_Node *node, int value){
     if(node == NULL || node->CDLL != lst){
         printf("Node doesn't belong to this list\n");
         return NULL;
@@ -93,8 +93,8 @@ Node *CDLL_insert_after(Circular_Double_Linked_List *lst, Node *node, int value)
         return NULL;
     }
 
-    Node *newNode = malloc(sizeof(Node));
-    Node *node_next = node->next;
+    CDLL_Node *newNode = malloc(sizeof(CDLL_Node));
+    CDLL_Node *node_next = node->next;
 
     newNode->data = value;
     newNode->CDLL = lst;
@@ -111,7 +111,7 @@ Node *CDLL_insert_after(Circular_Double_Linked_List *lst, Node *node, int value)
 
 }
 // Adds a new node before a given one
-Node *CDLL_insert_before(Circular_Double_Linked_List *lst, Node *node, int value){
+CDLL_Node *CDLL_insert_before(Circular_Double_Linked_List *lst, CDLL_Node *node, int value){
     if(node == NULL || node->CDLL != lst){
         printf("Node doesn't belong to this list\n");
         return NULL;
@@ -122,8 +122,8 @@ Node *CDLL_insert_before(Circular_Double_Linked_List *lst, Node *node, int value
         return NULL;
     }
 
-    Node *newNode = malloc(sizeof(Node));
-    Node *node_previous = node->previous;
+    CDLL_Node *newNode = malloc(sizeof(CDLL_Node));
+    CDLL_Node *node_previous = node->previous;
 
     newNode->data = value;
     newNode->CDLL = lst;
@@ -139,7 +139,7 @@ Node *CDLL_insert_before(Circular_Double_Linked_List *lst, Node *node, int value
 }
 
 // Returns the value stored in a given node
-int CDLL_get_node_value(Circular_Double_Linked_List *lst, Node *node){
+int CDLL_get_node_value(Circular_Double_Linked_List *lst, CDLL_Node *node){
     if(node == NULL || node->CDLL != lst){
         printf("Node doesn't belong to this list ");
         return -1;
@@ -171,14 +171,14 @@ int CDLL_pop_front(Circular_Double_Linked_List *lst){
         printf("The linked list is empty ");
         return -1;
     }
-    Node *old = lst->head;
+    CDLL_Node *old = lst->head;
     int val = old->data;
     
     if(old == old->next){
         lst->head = NULL;
     }else {
-        Node *new_head = old->next;
-        Node *head_previous = old->previous;
+        CDLL_Node *new_head = old->next;
+        CDLL_Node *head_previous = old->previous;
         
         new_head->previous = head_previous;
         head_previous->next = new_head;
@@ -200,13 +200,13 @@ int CDLL_pop_back(Circular_Double_Linked_List *lst){
         printf("The linked list is empty ");
         return -1;
     }
-    Node *old = lst->head->previous;
+    CDLL_Node *old = lst->head->previous;
     int val = old->data;
     
     if(old == old->next){
         lst->head = NULL;
     }else {
-        Node *new_last = old->previous;
+        CDLL_Node *new_last = old->previous;
         new_last->next = lst->head;
         lst->head->previous = new_last;
     }
@@ -220,7 +220,7 @@ int CDLL_pop_back(Circular_Double_Linked_List *lst){
 }
 
 // Changes the value at a given node
-void CDLL_update_node_value(Circular_Double_Linked_List *lst, Node *node, int value){
+void CDLL_update_node_value(Circular_Double_Linked_List *lst, CDLL_Node *node, int value){
     if(node == NULL || node->CDLL != lst){
         printf("Node doesn't belong to this list \n");
         return;
@@ -229,7 +229,7 @@ void CDLL_update_node_value(Circular_Double_Linked_List *lst, Node *node, int va
 }
 
 // Deletes a given node
-void CDLL_delete_node(Circular_Double_Linked_List *lst, Node *node){
+void CDLL_delete_node(Circular_Double_Linked_List *lst, CDLL_Node *node){
     if(node == NULL || node->CDLL != lst){
         printf("Node doesn't belong to this list \n");
         return;
@@ -237,8 +237,8 @@ void CDLL_delete_node(Circular_Double_Linked_List *lst, Node *node){
     if(node == node->next){
         lst->head = NULL;
     }else{
-        Node *previous = node->previous;
-        Node *next = node->next;
+        CDLL_Node *previous = node->previous;
+        CDLL_Node *next = node->next;
         previous->next = next;
         next->previous = previous;
 
@@ -258,8 +258,8 @@ void print_CDLL(Circular_Double_Linked_List *lst){
         printf("The linked list is empty\n");
         return;
     }
-    Node *current = lst->head;
-    Node *head = current;
+    CDLL_Node *current = lst->head;
+    CDLL_Node *head = current;
     
     do{
         printf("%d ", current->data);
@@ -283,9 +283,9 @@ void empty_CDLL(Circular_Double_Linked_List *lst){
         printf("Linked list is already empty\n");
         return;
     }
-    Node *head = lst->head;
-    Node *current = head;
-    Node *next;
+    CDLL_Node *head = lst->head;
+    CDLL_Node *current = head;
+    CDLL_Node *next;
     do{
         next = current->next;
         free(current);
@@ -294,3 +294,4 @@ void empty_CDLL(Circular_Double_Linked_List *lst){
     lst->size = 0;
     lst->head = NULL;
 }
+
