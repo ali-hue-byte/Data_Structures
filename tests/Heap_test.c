@@ -65,8 +65,8 @@ int main(void){
 
     heap_add(&h3,42);
 
-    printf("%d\n\n",heap_extract(&h3));
-    printf("Empty? : %s\n", is_empty_heap(&h3) ? "yes": "no");
+    printf("%d\n",heap_extract(&h3));
+    printf("Empty? : %s\n\n", is_empty_heap(&h3) ? "yes": "no");
 
 
     // Test 4: Two elements.
