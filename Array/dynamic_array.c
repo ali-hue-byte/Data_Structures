@@ -151,7 +151,7 @@ void destroy_dynamic_array(Dynamic_Array *d_array) {
     d_array->capacity = 0;
 }
 
-// Returns the index of a given value
+// Returns the index of the first occurrence of a given value.
 int dynamic_array_get_index(Dynamic_Array *d_array, int value){
     for(int i = 0; i < d_array->size; i++){
         if(*(d_array->data + i) == value){
