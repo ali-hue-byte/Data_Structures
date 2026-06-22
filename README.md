@@ -32,9 +32,10 @@ Every data structure includes tests covering:
 
 Run a test:
 
+```
 gcc tests/Heap_test.c -L. -lds -o heap_test
 ./heap_test
-
+```
 
 ### Planned implementations
 - **Graph**
