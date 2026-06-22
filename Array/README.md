@@ -34,6 +34,7 @@ infrequent), and all elements are copied to it, then the old block is freed.
 | empty_dynamic_array(Dynamic_Array *d_array) | Resets the array size to 0 without freeing its allocated memory, allowing it to be reused. | O(1) |
 | destroy_dynamic_array(Dynamic_Array *d_array) | Frees the allocated memory of the dynamic array. Used when the array is no longer needed. | O(1) |
 | dynamic_array_get_index(Dynamic_Array *d_array, int value) | Returns the index of a given value | O(n) in worst case |
+| dynamic_array_get_indexes(Dynamic_Array *d_array, int value) | Returns a dynamic array of indexes with that value | O(n) in worst case |
 
 ---
 ## Example
