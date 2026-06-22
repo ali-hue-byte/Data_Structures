@@ -44,8 +44,8 @@ void dynamic_array_append(Dynamic_Array *d_array, int value){
 // Returns the value at a given index
 int dynamic_array_value(Dynamic_Array *d_array, int index){
       if (index >= d_array->size || index < 0){
-        printf("Index out of range");
-        return 0;
+        printf("Index out of range ");
+        return -1;
       }
       return *(d_array->data + index); 
 }
@@ -53,7 +53,7 @@ int dynamic_array_value(Dynamic_Array *d_array, int index){
 // Adds an element to a given index
 void dynamic_array_insert(Dynamic_Array *d_array, int index, int value){
     if (index > d_array->size || index < 0){
-        printf("Index out of range");
+        printf("Index out of range ");
         return;
     }
     int capacity;
@@ -88,7 +88,7 @@ void dynamic_array_insert(Dynamic_Array *d_array, int index, int value){
 // Changes a value at a given index
 void dynamic_array_update(Dynamic_Array *d_array, int index, int value){
     if (index >= d_array->size || index < 0){
-        printf("Index out of range");
+        printf("Index out of range ");
         return;
     }
     *(d_array->data + index) = value; 
@@ -97,7 +97,7 @@ void dynamic_array_update(Dynamic_Array *d_array, int index, int value){
 // Deletes an element at a given index
 void dynamic_array_delete(Dynamic_Array *d_array, int index){
     if (index >= d_array->size || index < 0){
-        printf("Index out of range");
+        printf("Index out of range ");
         return;
     }
     int *data = malloc(d_array->capacity*sizeof(int));
