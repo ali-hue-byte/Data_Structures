@@ -160,3 +160,14 @@ int dynamic_array_get_index(Dynamic_Array *d_array, int value){
     }
     return -1;
 }
+
+// Returns a dynamic array of indexes with that value
+Dynamic_Array dynamic_array_get_indexes(Dynamic_Array *d_array, int value){
+    Dynamic_Array arr = create_dynamic_array();
+    for(int i = 0; i < d_array->size; i++){
+        if(*(d_array->data + i) == value){
+            dynamic_array_append(&arr, i);
+        }
+    }
+    return arr;
+}
