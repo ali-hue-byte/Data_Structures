@@ -21,6 +21,21 @@ libraries.
 ### Algorithms
 A separate `Algorithms/` folder contains utility functions that combine multiple data structures to solve common algorithmic problems.
 
+### Testing
+
+Every data structure includes tests covering:
+
+- Basic operations
+- Edge cases
+- Randomized stress tests
+- Duplicate handling (when supported)
+
+Run a test:
+
+gcc tests/Heap_test.c -L. -lds -o heap_test
+./heap_test
+
+
 ### Planned implementations
 - **Graph**
 
