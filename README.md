@@ -17,6 +17,7 @@ libraries.
 - **Hash Table (with separate chaining)**
 - **Linked List**
 - **Binary Search Tree**
+- **Heap**
 
 ### Algorithms
 A separate `Algorithms/` folder contains utility functions that combine multiple data structures to solve common algorithmic problems.
@@ -39,9 +40,6 @@ gcc tests/Heap_test.c -L. -lds -o heap_test
 
 ### Planned implementations
 - **Graph**
-
-### In progress ...
-- **Heap**
 
 
 ## Project structure
