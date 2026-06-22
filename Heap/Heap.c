@@ -102,3 +102,15 @@ int heap_extract(Heap *heap){
 bool is_empty_heap(Heap *heap){
     return is_empty_dynamic_array(&heap->heap_arr);
 }
+
+int heap_length(Heap *heap){
+    return get_dynamic_array_length(&heap->heap_arr);
+}
+
+void print_heap(Heap *heap){
+    print_dynamic_array(&heap->heap_arr);
+}
+
+void empty_heap(Heap *heap){
+    empty_dynamic_array(&heap->heap_arr);
+}
