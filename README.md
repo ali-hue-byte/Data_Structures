@@ -71,7 +71,10 @@ Data_Structures/
 ├── Algorithms/
 │   ├── algorithms.c
 │   ├── algorithms.h
-│   └── README.md            
+│   └── README.md
+├── tests/
+│   ├── Heap_test.c
+│   └── Dynamic_array_test.c
 ├── Stack/
 │   ├── stack.c
 │   ├── stack.h
