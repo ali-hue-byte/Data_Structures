@@ -22,5 +22,6 @@ void print_dynamic_array(Dynamic_Array *d_array);
 bool is_empty_dynamic_array(Dynamic_Array *d_array);
 void destroy_dynamic_array(Dynamic_Array *d_array);
 int dynamic_array_get_index(Dynamic_Array *d_array, int value);
+Dynamic_Array dynamic_array_get_indexes(Dynamic_Array *d_array, int value);
 
 #endif
