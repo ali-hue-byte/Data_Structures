@@ -18,7 +18,7 @@ Covered scenarios:
 #include <stdlib.h>
 #include "Heap/Heap.h"
 
-int main(void){
+int main(){
 
     // Test 1: General functionality.
     // Verifies that insertion and extraction preserve max-heap ordering.
