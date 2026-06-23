@@ -66,3 +66,7 @@ int main(){
 }
 
 ```
+---
+## Visualisation
+
+<img width="806" height="474" alt="image" src="https://github.com/user-attachments/assets/1b77606a-36d7-4a21-b4fb-e419e219ff6a" />
