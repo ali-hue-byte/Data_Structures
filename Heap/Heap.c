@@ -153,6 +153,10 @@ int heap_length(Heap *heap){
 
 // Prints the heap
 void print_heap(Heap *heap){
+    if(is_empty_heap(heap)){
+        printf("Heap is empty \n");
+        return;
+    }
     print_dynamic_array(&heap->heap_arr);
 }
 
