@@ -14,7 +14,7 @@ libraries.
 - **Dynamic Array**
 - **Queue**
 - **Stack**
-- **Hash Table (with separate chaining)**
+- **Hash Table**
 - **Linked List**
 - **Binary Search Tree**
 - **Heap**
