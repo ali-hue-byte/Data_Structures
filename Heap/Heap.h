@@ -17,5 +17,6 @@ bool is_empty_heap(Heap *heap);
 int heap_length(Heap *heap);
 void print_heap(Heap *heap);
 void empty_heap(Heap *heap);
+void destroy_heap(Heap *heap);
 
 #endif
