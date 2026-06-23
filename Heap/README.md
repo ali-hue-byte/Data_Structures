@@ -129,5 +129,6 @@ int main(void) {
 
 #### Tree representation
 
-<img width="1751" height="329" alt="image" src="https://github.com/user-attachments/assets/9dcbdfda-7019-43e3-a595-7047f48e6e9e" />
+<img width="1534" height="279" alt="image" src="https://github.com/user-attachments/assets/3b5fda53-d0f0-4f2c-8f7e-c6e41a561f76" />
+
 
