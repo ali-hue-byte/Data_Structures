@@ -258,5 +258,15 @@ int main(){
 
     printf("\n\nALL TESTS PASSED\n");
 
+    destroy_dynamic_array(&d_array);
+    destroy_dynamic_array(&d_array2);
+    destroy_dynamic_array(&d_array3);
+    destroy_dynamic_array(&d_array4);
+    destroy_dynamic_array(&d_array5);
+    destroy_dynamic_array(&d_array6);
+    destroy_dynamic_array(&powers_of_two);
+    destroy_dynamic_array(&divisible_by_30);
+    destroy_dynamic_array(&indexes);
+
     return 0;
 }
