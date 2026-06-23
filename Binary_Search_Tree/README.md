@@ -30,7 +30,7 @@ The parent of the node is linked directly to that child, bypassing the deleted n
 ##### Two children:
 The node is replaced with its inorder successor, which is then removed from its original position.
 
-##### Special case: the root
+#### Special case: the root
 The root has no parent, so it is handled separately. It also has the same three cases as every node : *leaf*, *one child* and *two children*.
 
 ---
