@@ -73,3 +73,9 @@ int main(){
 }
 
 ```
+
+---
+## Visualisation
+
+<img width="336" height="148" alt="image" src="https://github.com/user-attachments/assets/86ca1243-6f68-47e9-95a5-0bac256448e6" />
+
