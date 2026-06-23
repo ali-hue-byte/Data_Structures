@@ -13,13 +13,18 @@ Each value has a left child at index `2*i + 1` and a right child at index `2*i +
 
 ### Heap property
 
-#### Max heap
+#### - Max heap
 The max heap is a heap where each parent is bigger than its children. as a result of this property, the root is always the maximum value.
 
-#### Min heap
+#### - Min heap
 The min heap is a heap where each parent is smaller than its children. as a result of this property, the root is always the minimum value.
 
-### 
+### Adding values
+A new value is added at the end of the array, which corresponds to adding a new leaf in the tree representation. It is repeatedly compared with its parent, and swapped when necessary, based on the heap type. The new value is bubbled up till the heap property is satisfied.
+
+### Extracting
+After extracting the root, the last element in the array is moved to the root position. It is repeatedly compared with its children, and swapped when necessary with the corresponding child, depending on the type of the heap. The value is bubbled down till the heap property is satisfied.
+
 ---
 ## Operations
 
@@ -100,3 +105,28 @@ int main(void) {
 }
 
 ```
+## Visualisation of heaps used in the example
+
+### Max heap
+
+#### Array representation
+
+<img width="379" height="124" alt="image" src="https://github.com/user-attachments/assets/3d5be0b9-15ca-4f30-8155-5f46597218cc" />
+
+
+#### Tree representation 
+
+<img width="1605" height="321" alt="image" src="https://github.com/user-attachments/assets/762de213-b168-442a-af67-65e3b676323a" />
+
+
+### Min heap
+
+#### Array representation
+
+<img width="384" height="139" alt="image" src="https://github.com/user-attachments/assets/54b8dd06-6906-4e7c-9562-5547aa9b16d2" />
+
+
+#### Tree representation
+
+<img width="1751" height="329" alt="image" src="https://github.com/user-attachments/assets/9dcbdfda-7019-43e3-a595-7047f48e6e9e" />
+
