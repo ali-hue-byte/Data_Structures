@@ -124,3 +124,9 @@ int main(){
 }
 
 ```
+
+---
+## Visualisation
+
+<img width="1638" height="634" alt="image" src="https://github.com/user-attachments/assets/c1566cd6-f5d4-4b27-ad3d-b44776c741d5" />
+
