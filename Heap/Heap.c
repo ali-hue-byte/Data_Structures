@@ -78,7 +78,7 @@ int heap_peek(Heap *heap){
     return  dynamic_array_value(&heap->heap_arr, 0);
 }
 
-// Returns and removes the first element of the heap (minimum or maximum)
+// Returns and removes the root of the heap, then restructures it to maintain the heap property
 int heap_extract(Heap *heap){
     if(is_empty_heap(heap)){
         printf("Heap is empty: ");
@@ -159,4 +159,9 @@ void print_heap(Heap *heap){
 // Empties the heap
 void empty_heap(Heap *heap){
     empty_dynamic_array(&heap->heap_arr);
+}
+
+// Frees the allocated memory of the heap. Used when the array is no longer needed
+void destroy_heap(Heap *heap){
+    destroy_dynamic_array(&heap->heap_arr);
 }
