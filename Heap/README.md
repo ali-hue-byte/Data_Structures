@@ -116,7 +116,8 @@ int main(void) {
 
 #### Tree representation 
 
-<img width="1605" height="321" alt="image" src="https://github.com/user-attachments/assets/762de213-b168-442a-af67-65e3b676323a" />
+<img width="1429" height="280" alt="image" src="https://github.com/user-attachments/assets/419680bb-daa5-4a9b-ab78-e1489a40b17b" />
+
 
 
 ### Min heap
