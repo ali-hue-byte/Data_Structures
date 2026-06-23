@@ -89,6 +89,10 @@ Data_Structures/
 │   ├── hash_table.c
 │   ├── hash_table.h
 │   └── README.md
+├── Heap/
+│   ├── Heap.c
+│   ├── Heap.h
+│   └── README.md
 └── Linked_List/
     ├── linked_list.c
     ├── linked_list.h
