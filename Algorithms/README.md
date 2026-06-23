@@ -17,8 +17,10 @@ A collection of utility functions that combine multiple data structures from the
 
 ```c
 
-#include "ds.h"
 #include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+#include "ds.h"
 
 int main(void) {
 
@@ -44,6 +46,7 @@ int main(void) {
     free(sorted.data);
 
     // remove_duplicates_dynamic_array
+    printf("\n");
     Dynamic_Array no_dup = remove_duplicates_dynamic_array(&arr);
     printf("After remove duplicates (order preserved): ");
     print_dynamic_array(&no_dup); // 5 3 8 1 9
@@ -53,10 +56,34 @@ int main(void) {
     free(arr.data);
 
     // words_frequency
+    printf("\n");
     char text[] = "the cat sat on the mat the cat is on the mat";
     Hash_Table freq = words_frequency(text);
     printf("Word frequencies:\n");
     print_Hash_Table(&freq); // the:4 cat:2 sat:1 on:2 mat:2 is:1
+
+
+    // Heap sort (duplicates are preserved)
+    printf("\n");
+    Dynamic_Array d_array = create_dynamic_array();
+    dynamic_array_append(&d_array, 2);
+    dynamic_array_append(&d_array, 3);
+    dynamic_array_append(&d_array, 1);
+    dynamic_array_append(&d_array, 2);
+    dynamic_array_append(&d_array, 4);
+    dynamic_array_append(&d_array, 0);
+    dynamic_array_append(&d_array, -4);
+    dynamic_array_append(&d_array, 4);
+    dynamic_array_append(&d_array, 3);
+    dynamic_array_append(&d_array, 4);
+    printf("Before sorting: "); 
+    print_dynamic_array(&d_array); // 2 3 1 2 4 0 -4 4 3 4 
+    printf("\nAscending: ");
+    Dynamic_Array ascending = Heap_sort(&d_array, true);
+    print_dynamic_array(&ascending); // -4 0 1 2 2 3 3 4 4 4 
+    printf("\nDescending: ");
+    Dynamic_Array descending = Heap_sort(&d_array, false);
+    print_dynamic_array(&descending); // 4 4 4 3 3 2 2 1 0 -4 
 
     return 0;
 }
