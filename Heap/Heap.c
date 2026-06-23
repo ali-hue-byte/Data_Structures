@@ -16,9 +16,9 @@
   or implementing Dijkstra's shortest path algorithm in a graph.
 
   Possible operations :
-  add: Add a new value to the heap at corresponding place
-  peek: Get the root value, which is the maximum or minimum based on heap type
-  extract: Remove and return the root value
+  - add: Add a new value to the heap at corresponding place
+  - peek: Get the root value, which is the maximum or minimum based on heap type
+  - extract: Remove and return the root value
 */
 
 
