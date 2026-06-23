@@ -4,7 +4,7 @@
 CC = gcc
 CFLAGS = -Wall -c
 
-OBJECTS = stack.o queue.o dynamic_array.o hash_table.o binary_search_tree.o linked_list.o algorithms.o
+OBJECTS = stack.o queue.o dynamic_array.o hash_table.o binary_search_tree.o linked_list.o algorithms.o heap.o
 LIB_NAME = libds.a
 
 all: $(LIB_NAME)
@@ -32,6 +32,9 @@ linked_list.o: Linked_List/linked_list.c Linked_List/linked_list.h
 
 algorithms.o: Algorithms/algorithms.c Algorithms/algorithms.h
 	$(CC) $(CFLAGS) Algorithms/algorithms.c -o algorithms.o
+	
+heap.o: Heap/heap.c Heap/Heap.h
+	$(CC) $(CFLAGS) Heap/heap.c -o heap.o
 
 clean:
 	rm -f *.o $(LIB_NAME)
