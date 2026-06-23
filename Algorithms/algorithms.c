@@ -5,6 +5,7 @@
    - sort_dynamic_array: Sorts a dynamic array using a BST (duplicates are removed)
    - remove_duplicates_dynamic_array: Removes duplicates from a dynamic array while preserving order
    - words_frequency: Counts the frequency of each word in a given text
+   - Heap_sort: sorts a dynamic array using a heap (duplicates are not removed)
 
    Note: Functions that return a Dynamic_Array require the caller to free 
    the returned array's data (free(array.data)) when done.
@@ -64,4 +65,32 @@ Dynamic_Array remove_duplicates_dynamic_array(Dynamic_Array *d_arr){
         }
     }
     return new_array;
+}
+
+// Sorts a dynamic array without removing duplicates
+// Uses a heap-based sorting algorithm
+// Caller is responsible for freeing the returned array's data: free(array.data)
+
+Dynamic_Array Heap_sort(Dynamic_Array *d_array, bool ascending){
+
+    // For ascending order, use a Min Heap so the smallest element is extracted each time.
+    // For descending order, use a Max Heap so the largest element is extracted each time.
+    
+    Heap heap = create_heap(!ascending);
+
+    Dynamic_Array result = create_dynamic_array();
+
+    int size = get_dynamic_array_length(d_array);
+
+    // Insert all elements into the heap.
+    for(int i = 0; i < size; i++){
+        heap_add(&heap, dynamic_array_value(d_array, i));
+    }
+
+    // Extract elements from the heap in sorted order.
+    for(int i = 0; i < size; i++){
+        dynamic_array_append(&result, heap_extract(&heap));
+    }
+
+    return result;
 }
