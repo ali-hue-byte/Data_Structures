@@ -23,14 +23,14 @@ Using the BST property, it is easy and fast to find the position of the new valu
 
 ### Deletion
 Once the node to delete is located using BST property, there are three cases to handle:
-##### Leaf:
+##### - Leaf:
 The node to delete has no children and is removed directly.
-##### One child:
+##### - One child:
 The parent of the node is linked directly to that child, bypassing the deleted node.
-##### Two children:
+##### - Two children:
 The node is replaced with its inorder successor, which is then removed from its original position.
 
-#### Special case: the root
+#### ** Special case: the root
 The root has no parent, so it is handled separately. It also has the same three cases as every node : *leaf*, *one child* and *two children*.
 
 ---
