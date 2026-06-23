@@ -1,13 +1,25 @@
 # Heap
 
 ## Description
-
+Heap is a data structure represented by a tree, and stored as an array. Each value has 2 children (left and right).
+Unlike a BST, the heap does not store elements in sorted order, it only guarantees that the root is always the maximum or minimum value, depending on the heap type.
 
 ---
 ## How does it work
 
+### Structure
+The heap is implemented using the dynamic array. To simulate the tree structure, children are accessed using index arithmetic instead of pointers.
+Each value has a left child at index `2*i + 1` and a right child at index `2*i + 2`, and a parent at index `(i - 1) / 2`. The root is the only value without a parent, and leaves are the only values without children. 
 
+### Heap property
 
+#### Max heap
+The max heap is a heap where each parent is bigger than its children. as a result of this property, the root is always the maximum value.
+
+#### Min heap
+The min heap is a heap where each parent is smaller than its children. as a result of this property, the root is always the minimum value.
+
+### 
 ---
 ## Operations
 
