@@ -8,10 +8,10 @@ A collection of utility functions that combine multiple data structures from the
 
 | Functions | Description | Time complexity |
 |-----------|-------------|-----------------|
-| sort_dynamic_array(Dynamic_Array *d_arr) | Sorts a dynamic array using a BST (duplicates are removed). Caller is responsible for freeing the returned array's data (`free(array.data)`). | O(nlog(n)) |
+| sort_dynamic_array(Dynamic_Array *d_arr) | Sorts a dynamic array using a BST (duplicates are removed). Caller is responsible for freeing the returned array's data (`free(array.data)`). | O(n log(n)) |
 | words_frequency(char *text) | Counts the frequency of each word in a given text. Returns a Hash Table with words as keys and their frequency as values. | O(n) |
 | remove_duplicates_dynamic_array(Dynamic_Array *d_arr) | Removes duplicates from a dynamic array while preserving the original order. Uses a Hash Table to track seen values. Caller is responsible for freeing the returned array's data (`free(array.data)`). | O(n) |
-| Heap_sort(Dynamic_Array *d_array, bool ascending) | Sorts a dynamic array in ascending or descending order using a heap. Duplicates are preserved. The caller is responsible for freeing the returned array's data (`free(array.data)`). | O(nlog(n)) |
+| Heap_sort(Dynamic_Array *d_array, bool ascending) | Sorts a dynamic array in ascending or descending order using a heap. Duplicates are preserved. The caller is responsible for freeing the returned array's data (`free(array.data)`). | O(n log(n)) |
 
 ### Example
 
