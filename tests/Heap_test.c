@@ -65,8 +65,8 @@ int main(){
 
     heap_add(&h3,42);
 
-    printf("%d\n",heap_extract(&h3));
-    printf("Empty? : %s\n\n", is_empty_heap(&h3) ? "yes": "no");
+    printf("%d\n\n",heap_extract(&h3));
+    printf("Empty? : %s\n", is_empty_heap(&h3) ? "yes": "no");
 
 
     // Test 4: Two elements.
@@ -137,6 +137,15 @@ int main(){
     }
 
     printf("PASS\n");
+
+    destroy_heap(&h1);
+    destroy_heap(&h2);
+    destroy_heap(&h3);
+    destroy_heap(&h4);
+    destroy_heap(&h5);
+    destroy_heap(&h6);
+    destroy_heap(&h7);
+
 
     return 0;
 }
