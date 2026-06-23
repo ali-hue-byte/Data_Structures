@@ -77,5 +77,6 @@ int main(){
 ---
 ## Visualisation
 
-<img width="336" height="148" alt="image" src="https://github.com/user-attachments/assets/86ca1243-6f68-47e9-95a5-0bac256448e6" />
+<img width="1336" height="520" alt="image" src="https://github.com/user-attachments/assets/6a50857c-79a9-4f61-92d5-89f3ed5f16d0" />
+
 
