@@ -1,4 +1,4 @@
-# Linked List
+# Circular Doubly Linked List
 
 ## Description
 
