@@ -104,3 +104,7 @@ int main(void) {
 }
 
 ```
+---
+## Visualisation
+
+<img width="1755" height="261" alt="image" src="https://github.com/user-attachments/assets/ab6e7289-f8e6-4701-95f6-ce3854d6ea9b" />
