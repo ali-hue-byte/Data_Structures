@@ -38,7 +38,7 @@ gcc tests/Heap_test.c -L. -lds -o heap_test
 ./heap_test
 ```
 
-### Planned implementations
+### In progress...
 - **Graph**
 
 
