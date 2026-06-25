@@ -16,7 +16,7 @@ Covered scenarios:
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "Heap/Heap.h"
+#include "../Heap/Heap.h"
 
 int main(){
 
