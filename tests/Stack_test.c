@@ -34,7 +34,7 @@ int main(){
 
     // Test 2: Pushing elements
     // Checks if elements are correctly added to the stack,
-    // and that size is alsp tracked correctly
+    // and that size is also tracked correctly
 
     printf("=== Test 2 ===");
      
@@ -70,7 +70,7 @@ int main(){
     stack_pop(&stack);
 
     // Test 4: Peek
-    // Ensures peek only returns elements 
+    // Ensures peek returns the top element without removing it
 
 
     printf("=== Test 4 ===");
