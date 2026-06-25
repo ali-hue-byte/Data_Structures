@@ -107,6 +107,7 @@ void hash_table_graph_delete(Hash_Table_Graph *h_t, int key){
         if(current->key == key){
             if(previous) previous->next = current->next;
             else h_t->pair[index] = current->next;
+            free(current->value); // Frees the vertex
             free(current);
             h_t->size--;
             return;
