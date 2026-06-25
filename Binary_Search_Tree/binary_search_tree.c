@@ -217,7 +217,7 @@ void BST_delete(BST *bst, int value){
                 current = current->right;
             }
             if(current == NULL){
-               printf("Value not found\n");
+               printf("Value already exists: %d\n", value);
                return;
             }
         }
