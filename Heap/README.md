@@ -5,7 +5,7 @@ Heap is a data structure represented by a tree, and stored as an array. Each val
 Unlike a BST, the heap does not store elements in sorted order, it only guarantees that the root is always the maximum or minimum value, depending on the heap type.
 
 ---
-## How does it work
+## How it works
 
 ### Structure
 The heap is implemented using the dynamic array. To simulate the tree structure, children are accessed using index arithmetic instead of pointers.
