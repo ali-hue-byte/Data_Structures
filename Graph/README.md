@@ -13,6 +13,7 @@ Unlike linear structures such as arrays or linked lists, a graph has no fixed sh
 The graph is implemented as adjacency list, using a combination of hash table and linked list. 
 #### - Hash table
 The hash table stores each vertex's ID as the key and a pointer to the vertex as the value. This allows fast O(1) average access to any vertex by its ID.
+Hash_Table_Graph.c file contains hash table functions used in the graph implementation.
 #### - Vertices and edges linked list
 Each vertex stores an ID, a value, and a pointer to the head of its edge linked list. Each edge stores the destination vertex's ID, its weight (if the graph is weighted), and a pointer to the next edge in the list.
 
