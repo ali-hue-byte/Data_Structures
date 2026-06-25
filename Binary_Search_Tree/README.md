@@ -5,7 +5,7 @@
 A BST is a data structure represented by a tree, where each node has at most two children (left and right). The left child always holds a value smaller than its parent, and the right child always holds a value greater than its parent. This property applies to every node in the tree, not just the root.
 
 ---
-## How does it work
+## How it works
 
 ### Structure
 The BST is implemented using nodes principle. Each node holds a value, a pointer to its left child, a pointer to its right child, and a pointer to its parent. The parent pointer removes the need to track the parent manually during traversal, simplifying insertion, deletion, and other operations. The first inserted node becomes the root — the topmost node of the tree, which has no parent.
