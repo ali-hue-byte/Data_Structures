@@ -161,5 +161,6 @@ int main(void) {
 
 ### Adjacency list and hash table representation
 
-<img width="1538" height="885" alt="image" src="https://github.com/user-attachments/assets/3fd8ba0c-9ab3-4ab1-94b5-9cd369492f85" />
+<img width="1423" height="840" alt="image" src="https://github.com/user-attachments/assets/1a030738-a234-410a-9a9a-c39725684d22" />
+
 
