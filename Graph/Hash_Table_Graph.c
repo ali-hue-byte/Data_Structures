@@ -123,6 +123,7 @@ void hash_table_graph_empty(Hash_Table_Graph *h_t){
         elem_Graph *current = h_t->pair[i];
         while(current != NULL){
             elem_Graph *next = current->next;
+            free(current->value);
             free(current);
             current = next;
         }
