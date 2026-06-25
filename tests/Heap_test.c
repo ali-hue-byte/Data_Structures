@@ -20,9 +20,21 @@ Covered scenarios:
 
 int main(){
 
-    // Test 1: General functionality.
+    // Test 1: Empty heap
+    // Verifies that a newly created heap is empty
+    // and has size 0 without any operations
+
+    printf("=== Test 1 ===");
+
+    printf("\n\n");
+
+    Heap h = create_heap(true);
+    printf("Empty?: %s\n", is_empty_heap(&h) ? "yes" : "no");
+    printf("Size: %d\n\n", heap_length(&h));
+
+    // Test 2: General functionality.
     // Verifies that insertion and extraction preserve max-heap ordering.
-    printf("=== Test 1 ===\n");
+    printf("=== Test 2 ===\n");
 
     Heap h1 = create_heap(true);
 
@@ -39,9 +51,9 @@ int main(){
     printf("\n\n");
 
 
-    // Test 2: Duplicate values.
+    // Test 3: Duplicate values.
     // Ensures the heap correctly handles duplicate elements.
-    printf("=== Test 2 ===\n");
+    printf("=== Test 3 ===\n");
 
     Heap h2 = create_heap(true);
 
@@ -57,9 +69,9 @@ int main(){
     printf("\n\n");
 
 
-    // Test 3: Single element.
+    // Test 4: Single element.
     // Verifies extraction works correctly when the heap contains only one value.
-    printf("=== Test 3 ===\n");
+    printf("=== Test 4 ===\n");
 
     Heap h3 = create_heap(true);
 
@@ -69,9 +81,9 @@ int main(){
     printf("Empty? : %s\n", is_empty_heap(&h3) ? "yes": "no");
 
 
-    // Test 4: Two elements.
+    // Test 5: Two elements.
     // Verifies the simplest non-trivial heap configuration.
-    printf("=== Test 4 ===\n");
+    printf("=== Test 5 ===\n");
 
     Heap h4 = create_heap(true);
 
@@ -84,9 +96,9 @@ int main(){
     printf("\n\n");
 
 
-    // Test 5: Ascending insertion.
+    // Test 6: Ascending insertion.
     // Stresses the bubble-up operation by inserting increasing values.
-    printf("=== Test 5 ===\n");
+    printf("=== Test 6 ===\n");
 
     Heap h5 = create_heap(true);
 
@@ -98,9 +110,9 @@ int main(){
 
     printf("\n\n");
 
-    // Test 6: Descending insertion.
+    // Test 7: Descending insertion.
     // Stresses extraction and bubble-down behavior.
-    printf("=== Test 6 ===\n");
+    printf("=== Test 7 ===\n");
 
     Heap h6 = create_heap(true);
 
@@ -113,9 +125,9 @@ int main(){
     printf("\n\n");
 
 
-    // Test 7: Randomized stress test.
+    // Test 8: Randomized stress test.
     // Inserts 1000 random values and verifies extracted values remain sorted.
-    printf("=== Test 7 ===\n");
+    printf("=== Test 8 ===\n");
 
     Heap h7 = create_heap(true);
 
@@ -138,6 +150,8 @@ int main(){
 
     printf("PASS\n");
 
+
+    destroy_heap(&h);
     destroy_heap(&h1);
     destroy_heap(&h2);
     destroy_heap(&h3);
