@@ -116,15 +116,15 @@ int main(){
     print_stack(&stack2);
     printf("\n\nBefore Empty\n");
 
-    printf("Empty?: %s\n", stack_is_empty(&stack) ? "yes" : "no");
-    printf("Size: %d\n\n", stack_size(&stack));
+    printf("Empty?: %s\n", stack_is_empty(&stack2) ? "yes" : "no");
+    printf("Size: %d\n\n", stack_size(&stack2));
 
     empty_stack(&stack2);
 
     printf("\nAfter Empty\n");
 
-    printf("Empty?: %s\n", stack_is_empty(&stack) ? "yes" : "no");
-    printf("Size: %d\n\n", stack_size(&stack));
+    printf("Empty?: %s\n", stack_is_empty(&stack2) ? "yes" : "no");
+    printf("Size: %d\n\n", stack_size(&stack2));
 
     // Test 6: Stress test
     // Verifies correct behavior under heavy usage
