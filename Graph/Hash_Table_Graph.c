@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include "Graph.h"
+#include "Hash_Table_Graph.h"
 
 // Computes the index in the hash table for a given key
 int Hash_function(int key, int capacity){
