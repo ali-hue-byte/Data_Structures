@@ -155,7 +155,7 @@ int main(void) {
 ---
 ## Visualisation
 
-### Graph representation
+### Graph representation (IDs)
 
 <img width="928" height="517" alt="image" src="https://github.com/user-attachments/assets/9f9bb0b2-f3cd-459e-b988-85488dcebd14" />
 
