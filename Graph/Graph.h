@@ -40,6 +40,7 @@ void print_graph_ids(Graph *graph);
 void print_graph_values(Graph *graph);
 void remove_edge_graph(Graph *graph, int from, int to, bool is_id);
 void remove_vertex_graph(Graph *graph, int nb, bool is_id);
-
+void empty_graph(Graph *graph);
+void destroy_graph(Graph *graph);
 
 #endif
