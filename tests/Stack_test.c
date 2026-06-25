@@ -1,3 +1,17 @@
+/*
+Stack_test.c
+
+Purpose: 
+Tests the correctness of the stack implementation.
+
+Covered scenarios:
+- General push/pop
+- Peek
+- Size tracking
+- Print correctness
+- Stress testing
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "../Stack/stack.h"
