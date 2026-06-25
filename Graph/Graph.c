@@ -670,3 +670,51 @@ void remove_vertex_graph(Graph *graph, int nb, bool is_id){
     }
 
 }
+
+// Empties the graph
+// Graph can be reused
+void empty_graph(Graph *graph){
+    for(int i = 0; i < graph->vertices.capacity; i++){
+        elem_Graph *current = graph->vertices.pair[i];
+        if(current == NULL) continue;
+        
+        while(current != NULL){
+            
+            Edge *current_v = current->value->Edges_list;
+            while(current_v != NULL){
+                Edge *next = current_v->next_Edge;
+                free(current_v);
+                current_v = next;
+            }
+            
+            current = current->next;
+        }
+        
+    }
+    hash_table_graph_empty(&graph->vertices);
+
+}
+
+// Destroys the graph
+// Called when graph is no longer needed
+void destroy_graph(Graph *graph){
+    for(int i = 0; i < graph->vertices.capacity; i++){
+        elem_Graph *current = graph->vertices.pair[i];
+        if(current == NULL) continue;
+        
+        while(current != NULL){
+            
+            Edge *current_v = current->value->Edges_list;
+            while(current_v != NULL){
+                Edge *next = current_v->next_Edge;
+                free(current_v);
+                current_v = next;
+            }
+            
+            current = current->next;
+        }
+        
+    }
+    destroy_hash_table_graph(&graph->vertices);
+
+}
