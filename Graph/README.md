@@ -2,7 +2,7 @@
 
 ## Description
 
-A graph is a data structure that represents relationships between elements. It consists of vertices, which are nodes that hold values, and edges, which are connections between vertices.
+A graph is a non-linear data structure that represents relationships between elements. It consists of vertices, which are nodes that hold values, and edges, which are connections between vertices.
 Unlike linear structures such as arrays or linked lists, a graph has no fixed shape, any vertex can be connected to any other vertex, in any direction, with or without a weight.
 
 ---
