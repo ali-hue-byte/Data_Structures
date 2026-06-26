@@ -279,6 +279,7 @@ bool CDLL_is_empty(Circular_Double_Linked_List *lst){
 
 // Frees all the Nodes of the linked list
 void empty_CDLL(Circular_Double_Linked_List *lst){
+    if(lst->head == NULL) return;
     
     CDLL_Node *head = lst->head;
     CDLL_Node *current = head;
