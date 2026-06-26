@@ -1,6 +1,10 @@
 /*
 Graph_test.c
 
+Run:
+gcc Graph_test.c ../Graph/Graph.c ../Graph/Hash_Table_Graph.c ../Array/dynamic_array.c -o graph_test
+./graph_test.exe
+
 Purpose:
 Tests the correctness of the Graph implementation.
 
