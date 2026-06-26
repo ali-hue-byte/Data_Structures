@@ -261,21 +261,21 @@ int main(){
 
     // Connect each vertex to the next (chain)
     for(int i = 0; i < 9999; i++){
-        add_edge_graph(&g5, i, i+1, i*2, false); // by value
+        add_edge_graph(&g5, i, i+1, i*2, true); // by ID
     }
     printf("Edges after 9999 inserts: %d\n", graph_edges_nb(&g5));
 
     // Verify all edges exist and weights are correct
     int errors = 0;
     for(int i = 0; i < 9999; i++){
-        if(!edge_exists_graph(&g5, i, i+1, false)) errors++;
-        if(get_edge_weight_graph(&g5, i, i+1, false) != i*2) errors++;
+        if(!edge_exists_graph(&g5, i, i+1, true)) errors++;
+        if(get_edge_weight_graph(&g5, i, i+1, true) != i*2) errors++;
     }
     printf("Edge/weight errors: %d\n", errors);
 
     // Remove all vertices
     for(int i = 0; i < 10000; i++){
-        remove_vertex_graph(&g5, i, false);
+        remove_vertex_graph(&g5, i, true);
     }
     printf("Vertices after 10000 removals: %d\n", graph_length(&g5));
     printf("Edges after 10000 removals: %d\n", graph_edges_nb(&g5));
