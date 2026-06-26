@@ -7,6 +7,10 @@
    Each vertex stores an ID that is used to search for it in the hash table. And each vertex 
    has a linked list of its neighbors (connected vertices) IDs.
 
+   This implementation provides searching by value and by ID. Value operations are slow 
+   because they require linear search (O(n)).
+   It is recommended to use IDs for better performance (~ x10 faster).
+
    This implementation supports all four types of graphs: 
    - Weighted: each edge has a numerical value representing its weight, such as distance or cost.
    - Unweighted: edges have no weight, they simply indicate a connection between two vertices.
@@ -45,6 +49,7 @@ Graph create_graph(bool is_weighted, bool is_direct){
     Graph graph;
     
     graph.next_id = 0;
+    graph.edges_nb = 0;
     graph.vertices = create_hash_table_graph(); // new hash for vertices storage
     graph.is_direct = is_direct;
     graph.is_weighted = is_weighted;
@@ -53,6 +58,10 @@ Graph create_graph(bool is_weighted, bool is_direct){
 
 // Adds a new value to the graph, and assigns an ID to it
 int add_vertex_graph(Graph *graph, int value){
+    if(vertex_value_exists_graph(graph, value)){
+        printf("Value exists in the graph: %d ", value);
+        return -1;
+    }
     Vertex *new_vertex = malloc(sizeof(Vertex));
     new_vertex->value = value; // value
     new_vertex->id = graph->next_id; // id
@@ -90,6 +99,7 @@ void add_edge_graph(Graph *graph, int from, int to, int weight, bool is_id){
         new_edge->destination_id = to;
         new_edge->next_Edge = v_from->Edges_list;
         v_from->Edges_list = new_edge;
+        graph->edges_nb++;
         
         
         // Graph is undirect
@@ -99,8 +109,8 @@ void add_edge_graph(Graph *graph, int from, int to, int weight, bool is_id){
             new_edge2->destination_id = from;
             new_edge2->next_Edge = v_to->Edges_list;
             v_to->Edges_list = new_edge2;
+            graph->edges_nb++;
             
-
         }
         
 
@@ -146,6 +156,7 @@ void add_edge_graph(Graph *graph, int from, int to, int weight, bool is_id){
         
         new_edge->next_Edge = v_from->Edges_list;
         v_from->Edges_list = new_edge;
+        graph->edges_nb++;
 
         if(!graph->is_direct){
             Edge *new_edge2 = malloc(sizeof(Edge));
@@ -153,6 +164,7 @@ void add_edge_graph(Graph *graph, int from, int to, int weight, bool is_id){
             new_edge2->destination_id = v_from->id;
             new_edge2->next_Edge = v_to->Edges_list;
             v_to->Edges_list = new_edge2;
+            graph->edges_nb++;
 
         }
     }
@@ -218,7 +230,7 @@ int get_edge_weight_graph(Graph *graph, int from, int to, bool is_id){
 // Returns a dynamic array of the IDs of all neighbors of a given vertex
 Dynamic_Array get_neighbors_ids(Graph *graph, int id){
     if(!vertex_id_exists_graph(graph, id)){
-        printf("Id doesn't exist\n");
+        printf("Id doesn't exist: %d\n", id);
         return create_dynamic_array();
     }
     Dynamic_Array d_array = create_dynamic_array();
@@ -245,7 +257,7 @@ Dynamic_Array get_neighbors_values(Graph *graph, int value){
         }
     }
     if(current == NULL || current->value->value != value){
-        printf("Value doesn't exist\n");
+        printf("Value doesn't exist: %d\n", value);
         return create_dynamic_array();
     }
     
@@ -316,12 +328,18 @@ int graph_length(Graph *graph){
     return graph->vertices.size;
 }
 
-// Check if a vertex exists by ID
+// Returns number of edges in the graph
+int graph_edges_nb(Graph *graph){
+    if (graph->is_direct) return graph->edges_nb;
+    return graph->edges_nb / 2 ;
+}
+
+// Checks if a vertex exists by ID
 bool vertex_id_exists_graph(Graph *graph, int id){
     return key_in_hash_table_graph(&graph->vertices, id);
 }
 
-// Check if a vertex exists by value
+// Checks if a vertex exists by value
 bool vertex_value_exists_graph(Graph *graph, int value){
     for(int i = 0; i < graph->vertices.capacity; i++){
         elem_Graph *current = graph->vertices.pair[i];
@@ -402,6 +420,7 @@ void remove_edge_graph(Graph *graph, int from, int to, bool is_id){
         }
         if(current->destination_id == to){
             from_v->Edges_list = current->next_Edge;
+            graph->edges_nb--;
             free(current);
             if(graph->is_direct) return;
             found = true;
@@ -413,6 +432,7 @@ void remove_edge_graph(Graph *graph, int from, int to, bool is_id){
             while(current != NULL){
                 if(current->destination_id == to){
                     old->next_Edge = current->next_Edge;
+                    graph->edges_nb--;
                     free(current);
                     if(graph->is_direct) return;
                     break;
@@ -436,6 +456,7 @@ void remove_edge_graph(Graph *graph, int from, int to, bool is_id){
             }
             if(current2->destination_id == from){
                 to_v->Edges_list = current2->next_Edge;
+                graph->edges_nb--;
                 free(current2);
                 return;
             }
@@ -444,6 +465,7 @@ void remove_edge_graph(Graph *graph, int from, int to, bool is_id){
             while(current2 != NULL){
                 if(current2->destination_id == from){
                     old2->next_Edge = current2->next_Edge;
+                    graph->edges_nb--;
                     free(current2);
                     return;
 
@@ -492,6 +514,7 @@ void remove_edge_graph(Graph *graph, int from, int to, bool is_id){
         }
         if(current->destination_id == current_to->value->id){
             current_from->value->Edges_list = current->next_Edge;
+            graph->edges_nb--;
             free(current);
             if(graph->is_direct) return;
             found = true;
@@ -503,6 +526,7 @@ void remove_edge_graph(Graph *graph, int from, int to, bool is_id){
             while(current != NULL){
                 if(current->destination_id == current_to->value->id){
                     old->next_Edge = current->next_Edge;
+                    graph->edges_nb--;
                     free(current);
                     if(graph->is_direct) return;
                     break;
@@ -521,6 +545,7 @@ void remove_edge_graph(Graph *graph, int from, int to, bool is_id){
             }
             if(current2->destination_id == current_from->value->id){
                 current_to->value->Edges_list = current2->next_Edge;
+                graph->edges_nb--;
                 free(current2);
                 return;
             }
@@ -529,6 +554,7 @@ void remove_edge_graph(Graph *graph, int from, int to, bool is_id){
             while(current2 != NULL){
                 if(current2->destination_id == current_from->value->id){
                     old2->next_Edge = current2->next_Edge;
+                    graph->edges_nb--;
                     free(current2);
                     return;
 
@@ -556,6 +582,7 @@ void remove_vertex_graph(Graph *graph, int nb, bool is_id){
         Edge *current = vert->Edges_list;
         while(current != NULL){
             Edge *next = current->next_Edge;
+            graph->edges_nb--;
             free(current);
             current = next;
         }
@@ -573,6 +600,7 @@ void remove_vertex_graph(Graph *graph, int nb, bool is_id){
                 while(current_v != NULL && current_v->destination_id == nb){
                     current->value->Edges_list = current_v->next_Edge;
                     Edge *s = current_v->next_Edge;
+                    graph->edges_nb--;
                     free(current_v);
                     current_v = s;
 
@@ -584,6 +612,7 @@ void remove_vertex_graph(Graph *graph, int nb, bool is_id){
                     while(current_v != NULL){
                         if(current_v->destination_id == nb){
                             old->next_Edge = current_v->next_Edge;
+                            graph->edges_nb--;
                             free(current_v);
                             current_v = old->next_Edge;
                         }else{
@@ -623,6 +652,7 @@ void remove_vertex_graph(Graph *graph, int nb, bool is_id){
         Edge *current = vert->Edges_list;
         while(current != NULL){
             Edge *next = current->next_Edge;
+            graph->edges_nb--;
             free(current);
             current = next;
         }
@@ -639,6 +669,7 @@ void remove_vertex_graph(Graph *graph, int nb, bool is_id){
                 while(current_v != NULL && current_v->destination_id == id){
                     current->value->Edges_list = current_v->next_Edge;
                     Edge *s = current_v->next_Edge;
+                    graph->edges_nb--;
                     free(current_v);
                     current_v = s;
 
@@ -650,6 +681,7 @@ void remove_vertex_graph(Graph *graph, int nb, bool is_id){
                     while(current_v != NULL){
                         if(current_v->destination_id == id){
                             old->next_Edge = current_v->next_Edge;
+                            graph->edges_nb--;
                             free(current_v);
                             current_v = old->next_Edge;
                         }else{
@@ -691,6 +723,7 @@ void empty_graph(Graph *graph){
         }
         
     }
+    graph->edges_nb = 0;
     hash_table_graph_empty(&graph->vertices);
 
 }
@@ -715,6 +748,8 @@ void destroy_graph(Graph *graph){
         }
         
     }
+    graph->edges_nb = 0;
     destroy_hash_table_graph(&graph->vertices);
 
 }
+
