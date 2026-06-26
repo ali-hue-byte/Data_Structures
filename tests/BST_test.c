@@ -1,6 +1,10 @@
 /*
 BST_test.c
 
+Run:
+gcc BST_test.c ../Binary_Search_Tree/binary_search_tree.c ../Array/dynamic_array.c -o BST
+./BST.exe
+
 Purpose:
 Tests the correctness of the Binary Search Tree implementation.
 
