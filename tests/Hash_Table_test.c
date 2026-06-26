@@ -149,25 +149,25 @@ int main(){
     printf("=== Test 11 ===\n\n");
 
     Hash_Table h_t4 = create_hash_table();
-    for(int i = 0; i < 10000; i++){
+    for(int i = 0; i < 1000000; i++){
         sprintf(key, "k%d", i);
         Hash_Table_add(&h_t4, key, i);
     }
 
-    printf("Size after 10000 inserts: %d\n", Hash_Table_size(&h_t4));
+    printf("Size after 1000000 inserts: %d\n", Hash_Table_size(&h_t4));
 
     errors = 0;
-    for(int i = 0; i < 10000; i++){
+    for(int i = 0; i < 1000000; i++){
         sprintf(key, "k%d", i);
         if(Hash_Table_get(&h_t4, key) != i) errors++;
     }
     printf("Errors: %d\n", errors);
 
-    for(int i = 0; i < 10000; i++){
+    for(int i = 0; i < 1000000; i++){
         sprintf(key, "k%d", i);
         Hash_Table_delete(&h_t4, key);
     }
-    printf("Size after 10000 deletes: %d\n", Hash_Table_size(&h_t4));
+    printf("Size after 1000000 deletes: %d\n", Hash_Table_size(&h_t4));
     printf("Empty?: %s\n", is_empty_hash_table(&h_t4) ? "yes" : "no");
 
     destroy_hash_table(&h_t);
