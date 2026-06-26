@@ -1,6 +1,10 @@
 /*
 CDLL_test.c
 
+Run:
+gcc Linked_List_test.c ../Linked_List/linked_list.c -o CDLL
+./CDLL.exe
+
 Purpose:
 Tests the correctness of the Circular Doubly Linked List implementation.
 
