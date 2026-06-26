@@ -248,6 +248,8 @@ int main(){
     // Test 14: Stress test
     // Verifies correct behavior under heavy usage:
     // large-scale vertex/edge additions, lookups, and removals
+    // Value operations are slow because they require linear search
+    // It is recommended to use IDs for better performance (~ x10 faster)
     printf("=== Test 14 ===\n\n");
 
     Graph g5 = create_graph(true, true);
