@@ -1,6 +1,10 @@
 /*
 Heap_test.c
 
+Run:
+gcc Heap_test.c ../Heap/Heap.c ../Array/dynamic_array.c -o heap_test
+./heap_test.exe
+
 Purpose:
 Tests the correctness of the Heap implementation (both max and min).
 
