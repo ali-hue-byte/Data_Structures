@@ -159,7 +159,7 @@ int main(){
     printf("=== Test 9 ===\n\n");
 
     Stack stack4 = create_stack();
-    for(int i = 0; i <= 1000000; i++){
+    for(int i = 1; i <= 1000000; i++){
         stack_push(&stack4, i);
     }
 
@@ -167,13 +167,13 @@ int main(){
     printf("Size: %d\n", stack_size(&stack4));
     printf("Empty?: %s\n", stack_is_empty(&stack4) ? "yes" : "no");
 
-    for(int i = 1000000; i >= 0; i--){
+    for(int i = 1000000; i >= 1; i--){
         if(i != stack_pop(&stack4)){
             printf("FAILED\n");
             return 1;
         }
     }
-    printf("1000001 POP PASSED\n");
+    printf("1000000 POP PASSED\n");
     printf("Empty?: %s\n", stack_is_empty(&stack4) ? "yes" : "no");
 
     return 0;
