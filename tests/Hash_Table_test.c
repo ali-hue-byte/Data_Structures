@@ -1,6 +1,10 @@
 /*
 Hash_Table_test.c
 
+Run:
+gcc Hash_Table_test.c ../Hash_Table/hash_table.c -o h_t
+./h_t.exe
+
 Purpose:
 Tests the correctness of the Hash Table implementation.
 
