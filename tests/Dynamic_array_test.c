@@ -324,35 +324,35 @@ int main(){
     printf("=== Test 13 ===\n\n");
 
     Dynamic_Array arr9 = create_dynamic_array();
-    for(int i = 0; i < 10000; i++){
+    for(int i = 0; i < 1000000; i++){
         dynamic_array_append(&arr9, i);
     }
 
-    printf("Size after 10000 appends: %d\n", get_dynamic_array_length(&arr9));
+    printf("Size after 1000000 appends: %d\n", get_dynamic_array_length(&arr9));
     printf("First element: %d\n", dynamic_array_value(&arr9, 0));
     printf("Last element: %d\n", dynamic_array_value(&arr9, get_dynamic_array_length(&arr9) - 1));
 
     errors = 0;
-    for(int i = 0; i < 10000; i++){
+    for(int i = 0; i < 1000000; i++){
         if(dynamic_array_value(&arr9, i) != i) errors++;
     }
     printf("Read errors: %d\n", errors);
 
-    for(int i = 0; i < 10000; i++){
+    for(int i = 0; i < 1000000; i++){
         dynamic_array_update(&arr9, i, i * 2);
     }
 
     errors = 0;
-    for(int i = 0; i < 10000; i++){
+    for(int i = 0; i < 1000000; i++){
         if(dynamic_array_value(&arr9, i) != i * 2) errors++;
     }
     printf("Update errors: %d\n", errors);
 
-    for(int i = 0; i < 10000; i++){
-        dynamic_array_delete(&arr9, 0);
+    for(int i = 0; i < 1000000; i++){
+        dynamic_array_delete(&arr9, get_dynamic_array_length(&arr9) - 1);
     }
 
-    printf("Size after 10000 deletes: %d\n", get_dynamic_array_length(&arr9));
+    printf("Size after 1000000 deletes: %d\n", get_dynamic_array_length(&arr9));
     printf("Empty?: %s\n", is_empty_dynamic_array(&arr9) ? "yes" : "no");
 
     destroy_dynamic_array(&arr);
