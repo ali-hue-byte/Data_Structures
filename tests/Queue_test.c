@@ -1,6 +1,10 @@
 /*
 Queue_test.c
 
+Run:
+gcc Queue_test.c ../Queue/Queue.c ../Stack/stack.c -o queue_test
+./queue_test.exe
+
 Purpose:
 Tests the correctness of the Queue implementation.
 
