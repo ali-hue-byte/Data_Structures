@@ -157,7 +157,7 @@ void BST_delete(BST *bst, int value){
         return;
     }
 
-    // Case 1: two children — copy successor value and delete successor instead
+    // Case 1: two children — copy successor value and delete successor
     if(current->left != NULL && current->right != NULL){
         BST_Node *succ = successor(current);
         current->value = succ->value; // copy value down
