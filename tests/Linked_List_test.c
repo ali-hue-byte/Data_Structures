@@ -191,6 +191,8 @@ int main(){
     empty_CDLL(&lst);
     empty_CDLL(&lst2);
     empty_CDLL(&lst3);
+    empty_CDLL(&lst4);
+    
 
     return 0;
 }
