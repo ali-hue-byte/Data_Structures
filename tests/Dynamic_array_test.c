@@ -1,6 +1,10 @@
 /*
 Dynamic_array_test.c
 
+Run: 
+gcc Dynamic_array_test.c ../Array/dynamic_array.c -o dynamic_array_test
+./dynamic_array_test.exe
+
 Purpose:
 Tests the correctness of the Dynamic Array implementation.
 
