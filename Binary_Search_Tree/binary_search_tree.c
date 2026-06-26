@@ -144,158 +144,41 @@ void BST_delete(BST *bst, int value){
         printf("BST is empty\n");
         return;
     }
-    
+
+    // Find the node to delete
     BST_Node *current = bst->root;
-
-    if(current->value == value){ // First case: the given value's node is the root
-        if(current->right == NULL && current->left == NULL){ // The node is a leaf
-            free(bst->root);
-            bst->size--;
-            bst->root = NULL;
-            return;
-        }else if (current->right == NULL){ // A node with left child
-            free(bst->root);
-            bst->size--;
-            bst->root = current->left;
-            return;
-        }else if (current->left == NULL){ // A node with right child
-            free(bst->root);
-            bst->size--;
-            bst->root = current->right;
-            return;
-        }else{ // A node with two children
-
-            // Replace the node with its inorder successor
-            BST_Node *success = successor(current); 
-            BST_Node *succ_parent = success->parent; 
-
-            BST_Node *Right = current->right;
-            BST_Node *Left = current->left;
-
-            BST_Node *succ_right = success->right;
-            if(success->right == NULL){ // If the successor is a leaf
-
-                free(bst->root);
-                bst->size--;
-                success->parent = NULL;
-                if(success != current->right){
-    
-                    success->right = Right;
-                    if(Right != NULL) Right->parent = success;
-                    succ_parent->left = NULL;
-                }
-                success->left = Left;
-                if(Left != NULL) Left->parent = success;
-                bst->root = success; // New root
-                return;
-                
-            }else{
-                 
-                free(bst->root);
-                bst->size--;
-                success->parent = NULL;
-                if(success != current->right){
-    
-                    success->right = Right;
-                    if(Right != NULL) Right->parent = success;
-                    // If the successor has a right child, link it to the successor's parent
-                    succ_parent->left = succ_right;
-                    succ_right->parent = succ_parent;
-                }
-                success->left = Left;
-                if(Left != NULL) Left->parent = success;
-                bst->root = success;
-                return;
-            }
-        }
-    }else{ // Second case: the given value's node is an internal node
-        
-        while(current->value != value){ // Finds the value's node
-            if (value < current->value){
-                current = current->left;
-            } else if (value > current->value){
-                current = current->right;
-            }
-            if(current == NULL){
-               printf("Value already exists: %d\n", value);
-               return;
-            }
-        }
-
-
-        if(current->right == NULL && current->left == NULL){ // The node is a leaf
-            if(current->parent->right == current) current->parent->right = NULL;
-            if(current->parent->left == current) current->parent->left = NULL;
-            free(current);
-            bst->size--;
-            return;
-        }else if (current->right == NULL){ // A node with left child
-            if(current->parent->right == current) current->parent->right = current->left;
-            if(current->parent->left == current) current->parent->left = current->left;
-            current->left->parent = current->parent;
-            free(current);
-            bst->size--;
-            return;
-        }else if (current->left == NULL){ // A node with right child
-            if(current->parent->right == current) current->parent->right = current->right;
-            if(current->parent->left == current) current->parent->left = current->right;
-            current->right->parent = current->parent;
-            free(current);
-            bst->size--;
-            return;
-        }else{ // A node with two children
-
-            // Replace the node with its inorder successor
-            BST_Node *success = successor(current);
-            BST_Node *succ_parent = success->parent;
-
-            BST_Node *Right = current->right;
-            BST_Node *Left = current->left;
-
-            BST_Node *succ_right = success->right;
-            if(success->right == NULL){
-                success->parent = current->parent;
-                
-                bst->size--;
-                
-                if(success != current->right){
-    
-                    success->right = Right;
-                    if(Right != NULL) Right->parent = success;
-                    succ_parent->left = NULL;
-                }
-                success->left = Left;
-                if(Left != NULL) Left->parent = success;
-                // Link the parent to the successor
-                if(current->parent->right == current) current->parent->right = success;
-                if(current->parent->left == current) current->parent->left = success;
-                free(current);
-                return;
-                
-            }else{
-                 
-                
-                bst->size--;
-                success->parent = current->parent;
-                if(success != current->right){
-    
-                    success->right = Right;
-                    if(Right != NULL) Right->parent = success;
-                    succ_parent->left = succ_right;
-                    if(succ_right != NULL) succ_right->parent = succ_parent;
-                }
-                success->left = Left;
-                if(Left != NULL) Left->parent = success;
-                // Link the parent to the successor
-                if(current->parent->right == current) current->parent->right = success;
-                if(current->parent->left == current) current->parent->left = success;
-                free(current);
-                return;
-            }
-        }
-
-        
+    while(current != NULL && current->value != value){
+        if(value < current->value) current = current->left;
+        else current = current->right;
     }
+
+    if(current == NULL){
+        printf("Value not found: %d\n", value);
+        return;
+    }
+
+    // Case 1: two children — copy successor value and delete successor instead
+    if(current->left != NULL && current->right != NULL){
+        BST_Node *succ = successor(current);
+        current->value = succ->value; // copy value down
+        current = succ; // now delete the successor (has at most one child)
+    }
+
+    // Case 2: zero or one child
+    BST_Node *child = (current->left != NULL) ? current->left : current->right;
+
+    if(child != NULL) child->parent = current->parent;
+
+    if(current->parent == NULL){ // node is root
+        bst->root = child;
+    }else if(current->parent->left == current){
+        current->parent->left = child;
+    }else{
+        current->parent->right = child;
+    }
+
+    free(current);
+    bst->size--;
 }
 
 // Helper recursive function: Frees every node starting from a given node
