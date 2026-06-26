@@ -1,6 +1,10 @@
 /*
 Stack_test.c
 
+Run: 
+gcc Stack_test.c ../Stack/stack.c -o stack_test
+./stack_test.exe
+
 Purpose: 
 Tests the correctness of the stack implementation.
 
