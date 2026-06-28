@@ -18,6 +18,7 @@ libraries.
 - **Linked List**
 - **Binary Search Tree**
 - **Heap**
+- **Graph (adjacency list)**
 
 ### Algorithms
 A separate `Algorithms/` folder contains utility functions that combine multiple data structures to solve common algorithmic problems.
@@ -38,9 +39,12 @@ gcc tests/Heap_test.c -L. -lds -o heap_test
 ./heap_test
 ```
 
-### In progress...
-- **Graph**
-
+## Planned implementations
+- **Graph (adjacency matrix)**
+- **AVL tree**
+- **Breadth first search**
+- **Depth first search**
+- **Dijkstra**
 
 ## Project structure
 
@@ -92,6 +96,12 @@ Data_Structures/
 ├── Heap/
 │   ├── Heap.c
 │   ├── Heap.h
+│   └── README.md
+├── Graph/
+│   ├── Graph.c
+│   ├── Graph.h
+│   ├── Hash_Table_Graph.c
+│   ├── Hash_Table_Graph.h
 │   └── README.md
 └── Linked_List/
     ├── linked_list.c
