@@ -172,14 +172,14 @@ int main(){
 
     Circular_Double_Linked_List lst4 = create_CDLL();
     for(int i = 0; i < 1000000; i++){
-        CDLL_push_back(&lst4, i);
+        CDLL_push_front(&lst4, i);
     }
 
     printf("Size: %d\n", CDLL_get_length(&lst4));
     printf("Front: %d\n", CDLL_front(&lst4));
     printf("Back: %d\n", CDLL_back(&lst4));
-
-    for(int i = 0; i < 1000000; i++){
+    print_CDLL(&lst4);
+    for(int i = 999999; i > 0; i--){
         if(CDLL_pop_front(&lst4) != i){
             printf("FAILED\n");
             return 1;

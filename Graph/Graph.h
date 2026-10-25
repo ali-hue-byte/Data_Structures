@@ -21,6 +21,7 @@ struct Vertex {
 typedef struct {
     Hash_Table_Graph vertices;
     int next_id;
+    int edges_nb;
     bool is_weighted;
     bool is_direct;
 } Graph;
@@ -42,5 +43,6 @@ void remove_edge_graph(Graph *graph, int from, int to, bool is_id);
 void remove_vertex_graph(Graph *graph, int nb, bool is_id);
 void empty_graph(Graph *graph);
 void destroy_graph(Graph *graph);
+int graph_edges_nb(Graph *graph);
 
 #endif
